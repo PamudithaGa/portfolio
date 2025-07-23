@@ -12,10 +12,10 @@ function App() {
 
   return (
     <>
-      <section className="w-[80%] ml-[10%]">
+      <section className="w-[90%] ml-[5%]">
         <Navbar />
       </section>
-      <section className="w-[80%] ml-[10%] h-[90%]">
+      <section className="w-[90%] ml-[5%] h-[100%]">
         <Hero />
       </section>
       <section></section>
@@ -23,6 +23,7 @@ function App() {
       <section></section>
       <section></section>
       <section></section>
+      
     </>
   );
 }

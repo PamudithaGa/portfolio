@@ -1,9 +1,5 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-
-//Compornents
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 
@@ -12,10 +8,10 @@ function App() {
 
   return (
     <>
-      <section className="w-[90%] ml-[5%]">
+      <section className="w-[80%] mx-auto">
         <Navbar />
       </section>
-      <section className="w-[90%] ml-[5%] h-[100%]">
+      <section className="w-[80%] mx-auto mt-10">
         <Hero />
       </section>
       <section></section>
@@ -23,7 +19,7 @@ function App() {
       <section></section>
       <section></section>
       <section></section>
-      
+
     </>
   );
 }

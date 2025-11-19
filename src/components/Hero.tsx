@@ -1,28 +1,33 @@
 import React from "react";
-
-import heroImage from "../assets/1st.png"
+import MainImg from "../assets/pic1.png";
 
 const Hero: React.FC = () => {
   return (
-    <div className=" h-full">
-      <div className=" flex justify-center w-full">
-        <div className=" w-3/8 flex flex-col justify-center">
-          <div className="mt-20 text-8xl">
-            <h2 className="">Pamuditha</h2>
-            <h2 className="ml-2">Gangana</h2>
-          </div>
-          <div className="text-3xl mt-10 ml-20">
-            <h3>Software Developer</h3>
-            <h3>Web Developer</h3>
-            <h3>Event Planner</h3>
+    <div>
+      <div className="w-full h-[80vh] flex  justify-center items-center text-black rounded-xl">
+        <div className=" h-full w-1/3 flex flex-col justify-center items-center">
+          {" "}
+          <h1 className="font-cursive font-extralight text-6xl mb-5">
+            Pamuditha <span className="ml-18">Gangana</span>
+          </h1>
+          <div className="flex flex-col justify-center ml-8 ">
+            <h2 className="text-3xl ">Web Developer</h2>
+            <h2 className="text-3xl ">Mobile App Developer</h2>
+            <h2 className="text-3xl ">Event Planner</h2>
           </div>
         </div>
-        <div className=" w-2/8"><img src={heroImage} alt="" /></div>
-        <div className=" w-3/8 flex items-center justify-center">
-          <div>
-            <p className="text-6xl ">Amid the Storm of Tasks and Bugs, </p>
-            <p className="text-3xl mt-10">I remain the Master of Calm Chaos</p>
-          </div>
+        <div className="h-full w-1/3 flex flex-col justify-center items-center">
+          <img src={MainImg} alt="Main" className="h-full" />
+        </div>
+        <div className=" h-full w-1/3 flex flex-col justify-center ">
+          <h2 className="text-start w-[100%] text-5xl">
+            Amid the Stom of
+            <br />
+            Tasks and Bugs,
+          </h2>
+          <h3 className="mt-6 text-lg">
+            I Craft Digital Dreams with Code and Creativity.
+          </h3>
         </div>
       </div>
     </div>

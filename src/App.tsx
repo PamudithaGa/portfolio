@@ -1,36 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <section>
-     
+      <section className="w-[80%] mx-auto">
+        <Navbar />
       </section>
-      <section>
-
+      <section className="w-[80%] mx-auto mt-10">
+        <Hero />
       </section>
-      <section>
-
-      </section>
-      <section>
-
-      </section>
-      <section>
-
-      </section>
-      <section>
-
-      </section>
-      <section>
-        
-      </section>
+      <section></section>
+      <section></section>
+      <section></section>
+      <section></section>
+      <section></section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

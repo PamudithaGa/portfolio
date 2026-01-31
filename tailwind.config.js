@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         cursive: ['"Dancing Script"', "cursive"],
+        mrDeHaviland: ['"Mr De Haviland"', "cursive"],
       },
       keyframes: {
         moveLeftRight: {

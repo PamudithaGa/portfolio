@@ -2,6 +2,9 @@ import { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import About from "./components/AboutMe";
+import TechStack from "./components/TechStack";
+import Footer from "./components/Footer";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,12 +17,18 @@ function App() {
       <section className="w-[80%] mx-auto mt-10">
         <Hero />
       </section>
-      <section></section>
-      <section></section>
-      <section></section>
-      <section></section>
-      <section></section>
 
+      <section className="mt-30 w-[80%] mx-auto">
+        <About />
+      </section>
+      <section className="mt-30 w-[80%] mx-auto">
+        <TechStack />
+      </section>
+      <section className="mt-30 w-[80%] mx-auto"></section>
+      <section className="mt-30 w-[80%] mx-auto"></section>
+      <section>
+        <Footer />
+      </section>
     </>
   );
 }

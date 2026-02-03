@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/AboutMe";
 import TechStack from "./components/TechStack";
+import Project from "./components/Project";
 import Footer from "./components/Footer";
 
 function App() {
@@ -24,7 +25,9 @@ function App() {
       <section className="mt-30 w-[80%] mx-auto">
         <TechStack />
       </section>
-      <section className="mt-30 w-[80%] mx-auto"></section>
+      <section className="mt-30 w-[80%] mx-auto">
+        <Project />
+      </section>
       <section className="mt-30 w-[80%] mx-auto"></section>
       <section>
         <Footer />

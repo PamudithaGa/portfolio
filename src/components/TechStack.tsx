@@ -1,6 +1,6 @@
-import React from "react";
-import MeImg from "../assets/me.png";
-import SpaceshipScene from "./SpaceshipScene";
+import React, { useState, useEffect } from "react";
+import MeSittingImg from "../assets/me-sitting.jpg";
+import HologramScene from "./HologramScene";
 
 const TechStack: React.FC = () => {
   const tags = [
@@ -60,18 +60,29 @@ const TechStack: React.FC = () => {
     },
   ];
 
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % icons.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [icons.length]);
+
   return (
     <div className="flex flex-col md:flex-row items-center justify-between px-10 py-20 min-h-screen bg-white overflow-hidden relative">
       {/* Left Side: Text Content */}
-      <div className="md:w-1/2 space-y-8 z-10">
+      <div className="md:w-1/2 space-y-8 z-10 relative">
         <h1 className="text-[#222052] text-6xl font-medium">My Tech Stacks</h1>
 
-        <div className="text-xl text-gray-800 font-thin space-y-2">
-          <p>Python untangles complexity with elegant grace,</p>
-          <p>Node.js fuels the swift, boundless race,</p>
-          <p>React.js paints interfaces alive and bright,</p>
-          <p>.NET and C# forge backbones of might,</p>
-          <p>While JavaScript weaves seamless worlds in flight.</p>
+        <div className="relative">
+          <div className="text-xl text-gray-800 font-thin space-y-2 relative z-10">
+            <p>Python untangles complexity with elegant grace,</p>
+            <p>Node.js fuels the swift, boundless race,</p>
+            <p>React.js paints interfaces alive and bright,</p>
+            <p>.NET and C# forge backbones of might,</p>
+            <p>While JavaScript weaves seamless worlds in flight.</p>
+          </div>
         </div>
 
         <div className="flex flex-wrap gap-3 mt-8">
@@ -87,9 +98,9 @@ const TechStack: React.FC = () => {
       </div>
 
       {/* Right Side: Image and Icons */}
-      <div className="md:w-1/2 relative flex justify-center items-center mt-10 md:mt-0">
-        {/* The Bracket Shape - Kept for structure/background if needed, or we can hide it */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 h-[550px] w-[450px] hidden md:block z-0">
+      <div className="md:w-1/2 relative flex justify-center items-center mt-10 md:mt-0 h-[600px]">
+        {/* The Shape Behind Image */}
+        <div className="absolute left-1/2 mt-6 -translate-x-1/2 top-1/2 -translate-y-1/2 h-[620px] w-[450px] hidden md:block z-0">
           <svg
             viewBox="0 0 450 550"
             className="h-full w-full fill-[#222052]"
@@ -100,28 +111,18 @@ const TechStack: React.FC = () => {
         </div>
 
         {/* Person Image */}
-        <div className="relative z-10">
+        <div className="relative z-10 h-full flex items-end">
           <img
-            src={MeImg}
+            src={MeSittingImg}
             alt="Pamuditha"
-            className="h-[500px] object-contain drop-shadow-2xl"
+            className="h-[500px] md:h-[550px] object-contain drop-shadow-2xl"
           />
         </div>
 
-        {/* Spaceship Scene Overlay */}
+        {/* Hologram Scene Overlay - Centered on the person */}
         <div className="absolute inset-0 flex justify-center items-center z-20 pointer-events-none">
-          {/* Position the spaceship scene slightly higher or centered to interact with the person image? 
-                 The SpaceshipScene is 500px tall. It centers the spaceship at the top. 
-                 The person image is 500px tall. 
-                 This renders the spaceship ON TOP of the person.
-             */}
-          <div className="w-[500px] h-[600px] relative -mt-40">
-            {/* -mt-40 to pull it up so the spaceship is above the person's head if possible, 
-                     but let's just center it for now and see. 
-                     Actually, the prompt said 'Spaceship ... and alien says'.
-                     I'll position it such that the spaceship is floating above the person.
-                 */}
-            <SpaceshipScene icons={icons} />
+          <div className="w-[600px] h-[600px] relative">
+            <HologramScene icons={icons} activeIndex={activeIndex} />
           </div>
         </div>
       </div>

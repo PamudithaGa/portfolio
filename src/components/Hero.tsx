@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
         <div className=" h-full w-1/3 flex flex-col justify-center items-center -mt-10">
           {" "}
           <h1 className="font-cursive text-6xl mb-5">
-            Pamuditha <span className="ml-18">Gangana</span>
+            Pamuditha <span className="ml-18">Senanayaka</span>
           </h1>
           <div className="flex flex-col justify-center ml-8 ">
             <h2 className="text-3xl ">Web Developer</h2>

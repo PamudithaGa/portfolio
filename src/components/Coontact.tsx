@@ -48,7 +48,7 @@ const Coontact: React.FC = () => {
           {/* Email Card */}
           <div className="bg-white p-8 rounded-[30px] flex-1 shadow-sm flex flex-col justify-center gap-2">
             <p className="text-black font-bold text-lg">E-mail :</p>
-            <p className="text-gray-600">info@allinoneholdings.com</p>
+            <p className="text-gray-600">pamudithagangana45@gmail.com</p>
           </div>
 
           {/* Phone Card */}

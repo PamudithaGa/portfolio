@@ -3,19 +3,33 @@ import React, { useState } from "react";
 const Navbar: React.FC = () => {
   const [active, setActive] = useState("Home");
 
-  const navItems = ["Home", "Tech Stack", "Logo", "Projects", "Contact"];
+  const navItems = [
+    { name: "Home", id: "home" },
+    { name: "Tech Stack", id: "tech-stack" },
+    { name: "Logo", id: "home" },
+    { name: "Projects", id: "projects" },
+    { name: "Contact", id: "contact" },
+  ];
+
+  const handleScroll = (id: string, name: string) => {
+    setActive(name);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
-    <div className="bg-[#222052] py-3 flex items-center justify-center gap-30 text-[#fff] rounded-xl mt-6">
+    <div className="bg-[#222052] font-roboto py-3 flex items-center justify-center gap-30 text-[#fff] rounded-xl mt-6">
       {navItems.map((item) => (
         <div
-          key={item}
-          onClick={() => setActive(item)}
-          className={`px-6 py-3 rounded-2xl cursor-pointer transition-all duration-200 ${
-            active === item ? "bg-[#F5CB5C] text-black" : ""
+          key={item.name}
+          onClick={() => handleScroll(item.id, item.name)}
+          className={`px-6 py-3 rounded-2xl cursor-pointer transition-all duration-200 text-lg ${
+            active === item.name ? "bg-[#F5CB5C] text-black" : ""
           }`}
         >
-          {item}
+          {item.name}
         </div>
       ))}
     </div>

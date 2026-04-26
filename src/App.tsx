@@ -1,5 +1,4 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/AboutMe";
 import TechStack from "./components/TechStack";
@@ -12,25 +11,26 @@ function App() {
 
   return (
     <>
-      <section className="w-[80%] mx-auto">
-        <Navbar />
-      </section>
-      <section className="w-[80%] mx-auto mt-10">
+      <section id="home" className="w-[98%] mx-auto">
         <Hero />
       </section>
 
-      <section className="mt-30 w-[80%] mx-auto">
+      <section id="about" className="mt-30 w-[90%] mx-auto">
         <About />
       </section>
-      <section className="mt-30 w-[80%] mx-auto">
+
+      <section id="tech-stack" className="mt-30 w-[90%] mx-auto">
         <TechStack />
       </section>
-      <section className="mt-30 w-[80%] mx-auto">
+      
+      <section id="projects" className="mt-30 w-[90%] mx-auto">
         <Project />
       </section>
-      <section className="mt-30 w-[80%] mx-auto">
+      
+      <section id="contact" className="mt-30 w-[90%] mx-auto">
         <Contact />
       </section>
+      
       <section>
         <Footer />
       </section>

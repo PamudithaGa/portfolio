@@ -17,7 +17,7 @@ const Project: React.FC = () => {
         <div className="w-full lg:w-1/3 bg-[#021833] rounded-[30px] flex items-end justify-center pt-10 px-4 overflow-hidden relative">
           <img
             src={me}
-            alt="Pamuditha Gangana"
+            alt="Pamuditha Senanayaka"
             className="w-full h-auto object-cover max-w-[300px] z-10"
           />
           <div className="absolute top-20 left-10 opacity-10 text-9xl font-bold text-white pointer-events-none"></div>

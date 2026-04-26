@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, Phone, Facebook, Instagram, Globe } from "lucide-react";
+import {  Facebook, Instagram, Globe } from "lucide-react";
 
 const Coontact: React.FC = () => {
   return (

@@ -5,9 +5,15 @@ import TechStack from "./components/TechStack";
 import Project from "./components/Project";
 import Contact from "./components/Coontact";
 import Footer from "./components/Footer";
+import UnderDevelopment from "./components/UnderDevelopment";
 
 function App() {
-  // const [count, setCount] = useState(0);
+  // Set this to false when you want to show the full website
+  const isUnderDevelopment = true;
+
+  if (isUnderDevelopment) {
+    return <UnderDevelopment />;
+  }
 
   return (
     <>
@@ -39,3 +45,4 @@ function App() {
 }
 
 export default App;
+

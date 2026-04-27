@@ -1,139 +1,106 @@
-# 🚀 My Portfolio Website
+# 🚀 My Portfolio
 
-Welcome to my personal portfolio website!
-This project showcases my work, skills, and projects as a **Software Engineer & Creative Builder**.
+Welcome to my personal portfolio website! This project showcases my work, skills, and experience as a developer.
 
 ---
 
 ## 🌐 Live Demo
-
-👉 [View Portfolio](#)
-*([Add your deployed link here — Vercel / Netlify / custom domain](https://www.pamudithasenanayaka.com/))*
+👉 Add your deployed link here (e.g., https://your-portfolio.com)
 
 ---
 
-## 📸 Preview
-
-![Portfolio Preview](./preview.png)
-*(Replace with your actual screenshot)*
-
----
-
-## 🧠 About This Project
-
-This portfolio is designed to:
-
-* Showcase my **projects & skills**
-* Highlight my **experience and achievements**
-* Provide an easy way to **connect with me**
-
-Built with performance, clean UI, and scalability in mind.
+## 📌 About Me
+Hi, I'm a passionate developer who enjoys building modern, scalable, and user-friendly applications.  
+I focus on clean design, performance, and real-world problem solving.
 
 ---
 
-## ⚙️ Tech Stack
+## 🛠️ Tech Stack
 
-### 🖥️ Frontend
+### Frontend
+- React + TypeScript
+- Vite
+- React Router
+- Tailwind CSS (or your CSS framework)
 
-* React + TypeScript
-* Vite
-* Tailwind CSS *(if you use it, otherwise remove)*
+### Backend
+- Node.js
+- Express
 
-### 🌐 Backend *(if applicable)*
+### Database
+- MongoDB (Mongoose)
 
-* Node.js / Express
-
-### 🔥 Other Tools & Libraries
-
-* React Router
-* React Icons / Lucide
-* Leaflet *(for maps, if used)*
-* Firebase *(if used)*
+### Tools
+- Figma
+- Postman
+- VS Code
 
 ---
 
 ## ✨ Features
-
-* ⚡ Fast & responsive design
-* 🌙 Dark theme UI
-* 🎯 Clean and minimal layout
-* 📱 Mobile-friendly
-* 🧩 Modular and scalable code structure
+- Responsive design (mobile + desktop)
+- Dark theme UI
+- Smooth navigation
+- Project showcase section
+- Contact form integration
+- Fast performance
 
 ---
 
-## 📂 Project Structure
-
+## 📁 Project Structure
 ```
-portfolio/
-│── public/
-│── src/
-│   ├── components/
-│   ├── pages/
-│   ├── assets/
-│   ├── hooks/
-│   └── utils/
-│── index.html
-│── package.json
+/src
+  /components
+  /pages
+  /assets
+  /hooks
+  /utils
 ```
 
 ---
 
-## 🛠️ Installation & Setup
+## ⚙️ Installation
 
 Clone the repo:
-
-```bash
-git clone https://github.com/your-username/your-portfolio.git
-cd your-portfolio
+```
+git clone https://github.com/your-username/your-repo.git
 ```
 
 Install dependencies:
-
-```bash
+```
 npm install
 ```
 
-Run the development server:
-
-```bash
+Run locally:
+```
 npm run dev
 ```
 
-Build for production:
+---
 
-```bash
-npm run build
-```
+## 📸 Screenshots
+Add screenshots of your portfolio here.
 
 ---
 
-## 🚀 Deployment
-
-You can deploy easily using:
-
-* Vercel
-* Netlify
-* GitHub Pages
-
----
-
-## 📬 Contact Me
-
-* Email: [your-email@example.com](mailto:your-email@example.com)
-* LinkedIn: [https://linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
-* GitHub: [https://github.com/your-username](https://github.com/your-username)
+## 📬 Contact
+- Email: pamudithagangana45@gmail.com
+- LinkedIn: https://linkedin.com/in/pamudithagss
+- GitHub: https://github.com/PamudithaGa
 
 ---
 
 ## 📄 License
+This project is open-source and available under the MIT License.
 
-This project is open-source and available under the **MIT License**.
+---
+
+## 💡 Future Improvements
+- Blog section
+- Admin dashboard
+- More animations
+- SEO optimization
 
 ---
 
-## 💡 Inspiration
-
-Built to represent not just my skills, but my **thinking, creativity, and problem-solving approach**.
-
----
+⭐ Don't forget to star the repo if you like it!

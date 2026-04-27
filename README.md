@@ -5,7 +5,7 @@ Welcome to my personal portfolio website! This project showcases my work, skills
 ---
 
 ## 🌐 Live Demo
-👉 Add your deployed link here (e.g., https://your-portfolio.com)
+👉 https://www.pamudithasenanayaka.com
 
 ---
 

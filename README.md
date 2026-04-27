@@ -1,69 +1,139 @@
-# React + TypeScript + Vite
+# 🚀 My Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio website!
+This project showcases my work, skills, and projects as a **Software Engineer & Creative Builder**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Demo
 
-## Expanding the ESLint configuration
+👉 [View Portfolio](#)
+*([Add your deployed link here — Vercel / Netlify / custom domain](https://www.pamudithasenanayaka.com/))*
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📸 Preview
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+![Portfolio Preview](./preview.png)
+*(Replace with your actual screenshot)*
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🧠 About This Project
+
+This portfolio is designed to:
+
+* Showcase my **projects & skills**
+* Highlight my **experience and achievements**
+* Provide an easy way to **connect with me**
+
+Built with performance, clean UI, and scalability in mind.
+
+---
+
+## ⚙️ Tech Stack
+
+### 🖥️ Frontend
+
+* React + TypeScript
+* Vite
+* Tailwind CSS *(if you use it, otherwise remove)*
+
+### 🌐 Backend *(if applicable)*
+
+* Node.js / Express
+
+### 🔥 Other Tools & Libraries
+
+* React Router
+* React Icons / Lucide
+* Leaflet *(for maps, if used)*
+* Firebase *(if used)*
+
+---
+
+## ✨ Features
+
+* ⚡ Fast & responsive design
+* 🌙 Dark theme UI
+* 🎯 Clean and minimal layout
+* 📱 Mobile-friendly
+* 🧩 Modular and scalable code structure
+
+---
+
+## 📂 Project Structure
+
+```
+portfolio/
+│── public/
+│── src/
+│   ├── components/
+│   ├── pages/
+│   ├── assets/
+│   ├── hooks/
+│   └── utils/
+│── index.html
+│── package.json
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠️ Installation & Setup
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Clone the repo:
+
+```bash
+git clone https://github.com/your-username/your-portfolio.git
+cd your-portfolio
 ```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+---
+
+## 🚀 Deployment
+
+You can deploy easily using:
+
+* Vercel
+* Netlify
+* GitHub Pages
+
+---
+
+## 📬 Contact Me
+
+* Email: [your-email@example.com](mailto:your-email@example.com)
+* LinkedIn: [https://linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
+* GitHub: [https://github.com/your-username](https://github.com/your-username)
+
+---
+
+## 📄 License
+
+This project is open-source and available under the **MIT License**.
+
+---
+
+## 💡 Inspiration
+
+Built to represent not just my skills, but my **thinking, creativity, and problem-solving approach**.
+
+---

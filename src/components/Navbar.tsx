@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-
+import Logo from "../assets/LogoP.png";
 const Navbar: React.FC = () => {
   const [active, setActive] = useState("Home");
 
   const navItems = [
     { name: "Home", id: "home" },
     { name: "Tech Stack", id: "tech-stack" },
-    { name: "Logo", id: "home" },
+    { name: Logo, id: "home" },
     { name: "Projects", id: "projects" },
     { name: "Contact", id: "contact" },
   ];
@@ -20,16 +20,20 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#222052] font-roboto py-3 flex items-center justify-center gap-30 text-[#fff] rounded-xl mt-6">
+    <div className="bg-[#222052] font-roboto flex items-center justify-center gap-10 text-[#fff] rounded-xl mt-6">
       {navItems.map((item) => (
         <div
           key={item.name}
           onClick={() => handleScroll(item.id, item.name)}
-          className={`px-6 py-3 rounded-2xl cursor-pointer transition-all duration-200 text-lg ${
-            active === item.name ? "bg-[#F5CB5C] text-black" : ""
+          className={`px-6 py-2 rounded-2xl cursor-pointer transition-all duration-200 text-lg flex items-center ${
+            active === item.name && item.name !== Logo ? "bg-[#F5CB5C] text-black" : ""
           }`}
         >
-          {item.name}
+          {item.name === Logo ? (
+            <img src={Logo} alt="Logo" className="h-12" />
+          ) : (
+            item.name
+          )}
         </div>
       ))}
     </div>

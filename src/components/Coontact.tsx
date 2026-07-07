@@ -1,85 +1,221 @@
-import React from "react";
-import {  Facebook, Instagram, Globe } from "lucide-react";
+import React, { useState } from "react";
+import { Facebook, Instagram, Linkedin, ChevronDown } from "lucide-react";
 
 const Coontact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    company: "",
+    email: "",
+    phoneCode: "LK +94",
+    phone: "",
+    category: "",
+    requirement: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    // Add form submission handling logic here
+  };
+
   return (
-    <div className="w-full bg-gray-100 rounded-[40px] p-8 md:p-16 flex flex-col lg:flex-row gap-12 lg:gap-20 font-sans">
+    <div className="w-full bg-[#f8f9fa] rounded-[40px] p-8 md:p-16 flex flex-col-2 gap-12 lg:gap-20 font-sans border border-gray-100 shadow-sm">
       {/* Left Column - Form */}
-      <div className="w-full lg:w-1/2 flex flex-col gap-6">
-        <input
-          type="text"
-          placeholder="Your Name"
-          className="w-full p-4 bg-transparent border border-gray-400 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
-        />
-        <input
-          type="tel"
-          placeholder="Phone Number"
-          className="w-full p-4 bg-transparent border border-gray-400 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
-        />
-        <input
-          type="email"
-          placeholder="Email Address"
-          className="w-full p-4 bg-transparent border border-gray-400 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
-        />
-        <textarea
-          placeholder="Your Message..."
-          rows={6}
-          className="w-full p-4 bg-transparent border border-gray-400 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors resize-none"
-        />
+      <form onSubmit={handleSubmit} className="w-full lg:w-[55%] flex flex-col gap-5">
+        <div>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your name (e.g. Nimal Perera)"
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full p-4 bg-white border border-gray-200 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors"
+          />
+        </div>
+
+        <div>
+          <input
+            type="text"
+            name="company"
+            placeholder="Enter your company"
+            value={formData.company}
+            onChange={handleChange}
+            className="w-full p-4 bg-white border border-gray-200 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors"
+          />
+        </div>
+
+        <div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your e-mail"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full p-4 bg-white border border-gray-200 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors"
+          />
+        </div>
+
+        {/* Phone Input with Country Code Selector */}
+        <div className="flex gap-3 w-full">
+          <div className="relative w-32 flex-shrink-0">
+            <select
+              name="phoneCode"
+              value={formData.phoneCode}
+              onChange={handleChange}
+              className="w-full p-4 bg-white border border-gray-200 rounded-2xl text-gray-700 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors appearance-none cursor-pointer pr-8 font-medium"
+            >
+              <option value="LK +94">LK +94</option>
+              <option value="US +1">US +1</option>
+              <option value="AU +61">AU +61</option>
+              <option value="GB +44">GB +44</option>
+            </select>
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+              <ChevronDown size={18} />
+            </div>
+          </div>
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Enter your phone number"
+            value={formData.phone}
+            onChange={handleChange}
+            className="flex-grow p-4 bg-white border border-gray-200 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors"
+          />
+        </div>
+
+        {/* Service Category Dropdown */}
+        <div className="relative w-full">
+          <select
+            name="category"
+            value={formData.category}
+            onChange={handleChange}
+            className={`w-full p-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors appearance-none cursor-pointer pr-10 ${
+              formData.category ? "text-gray-700" : "text-gray-400"
+            }`}
+          >
+            <option value="">Select a service category</option>
+            <option value="web-development">Web Development</option>
+            <option value="system-architecture">System Architecture</option>
+            <option value="branding-design">Brand Identity & Design</option>
+            <option value="consulting">Free Consultation Call</option>
+          </select>
+          <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+            <ChevronDown size={18} />
+          </div>
+        </div>
+
+        <div>
+          <textarea
+            name="requirement"
+            placeholder="Type brief about your requirement"
+            rows={5}
+            value={formData.requirement}
+            onChange={handleChange}
+            className="w-full p-4 bg-white border border-gray-200 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors resize-none"
+          />
+        </div>
 
         <div className="mt-2">
-          <button className="bg-[#FCD34D] text-black font-semibold text-lg px-8 py-3 rounded-full hover:bg-yellow-400 transition-colors shadow-md">
+          <button
+            type="submit"
+            className="bg-[#222052] hover:bg-[#F5CB5C] text-white hover:text-[#222052] font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.03] transition-all shadow-md"
+          >
             Send Message
           </button>
         </div>
-      </div>
+      </form>
 
       {/* Right Column - Info */}
-      <div className="w-full lg:w-1/2 flex flex-col pt-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-black mb-4 leading-tight">
-          Reach Out, We're Listening
-        </h2>
-        <p className="text-gray-500 text-lg mb-12">
-          We're ready to assist. Share the details below and we'll get back to
-          you soon.
-        </p>
-
-        <div className="flex flex-col md:flex-row gap-6 mb-12">
-          {/* Email Card */}
-          <div className="bg-white p-8 rounded-[30px] flex-1 shadow-sm flex flex-col justify-center gap-2">
-            <p className="text-black font-bold text-lg">E-mail :</p>
-            <p className="text-gray-600">pamudithagangana45@gmail.com</p>
-          </div>
-
-          {/* Phone Card */}
-          <div className="bg-[#023e7d] p-8 rounded-[30px] flex-1 shadow-sm text-white flex flex-col justify-center gap-2">
-            <p className="font-bold text-lg">Phone :</p>
-            <p>+94 81 2121 051</p>
-            <p>+94 81 2121 051</p>
-          </div>
+      <div className="w-full lg:w-[45%] flex flex-col justify-between pt-2">
+        <div className="mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+            Ready to Grow Your <br />
+            <span className="text-[#222052] bg-gradient-to-r from-[#222052] to-[#F5CB5C] bg-clip-text text-transparent">
+              Business?
+            </span>
+          </h2>
+          <p className="text-gray-500 mt-4 text-base leading-relaxed max-w-lg">
+            Stop guessing. Let's create a plan that actually works. Schedule your
+            free consultation call today.
+          </p>
         </div>
 
-        <div className="mt-auto">
-          <p className="text-black text-lg mb-4">Follow Us:</p>
-          <div className="flex gap-4">
-            <a
-              href="#"
-              className="w-12 h-12 bg-[#FCD34D] rounded-full flex items-center justify-center text-black hover:bg-yellow-400 transition-colors"
-            >
-              <Facebook size={20} />
-            </a>
-            <a
-              href="#"
-              className="w-12 h-12 bg-[#FCD34D] rounded-full flex items-center justify-center text-black hover:bg-yellow-400 transition-colors"
-            >
-              <Instagram size={20} />
-            </a>
-            <a
-              href="#"
-              className="w-12 h-12 bg-[#FCD34D] rounded-full flex items-center justify-center text-black hover:bg-yellow-400 transition-colors"
-            >
-              <Globe size={20} />
-            </a>
+        {/* Info Grid (Locations vs. Phone/Mail/Socials) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+          
+          {/* Right stack (Phone, E-mail, Socials) */}
+          <div className="flex flex-col gap-6">
+            {/* Phone Card with floating WhatsApp button */}
+            <div className="bg-gradient-to-r from-[#222052] to-[#121133] text-white p-6 rounded-[24px] relative shadow-md flex flex-col justify-center gap-1.5 min-h-[120px]">
+              <p className="font-bold text-lg">Phone :</p>
+              <p className="text-sm opacity-90 font-medium">+44 794 7830390</p>
+              <p className="text-sm opacity-90 font-medium">+94 72 644 2538</p>
+
+              {/* Floating WhatsApp Action Button */}
+              <a
+                href="https://wa.me/94726442538"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-[#F5CB5C] hover:bg-[#222052] text-[#222052] hover:text-white rounded-full flex items-center justify-center absolute -right-6 top-1/2 -translate-y-1/2 shadow-lg transition-all hover:scale-110 duration-200 border-2 border-white"
+                aria-label="WhatsApp Call"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="22"
+                  height="22"
+                  fill="currentColor"
+                >
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+              </a>
+            </div>
+
+            {/* E-mail Card */}
+            <div className="bg-white p-6 rounded-[24px] border border-gray-100 shadow-sm flex flex-col justify-center gap-1 min-h-[90px]">
+              <p className="font-bold text-gray-900 text-lg">E-mail :</p>
+              <p className="text-gray-600 text-sm break-all font-medium">
+                pamudithagangana45@gmail.com
+              </p>
+            </div>
+
+            {/* Follow Us */}
+            <div className="flex flex-col gap-3">
+              <p className="font-bold text-gray-900 text-base">Follow Me:</p>
+              <div className="flex flex-wrap gap-2.5">
+                <a
+                  href="https://www.facebook.com/pamuditha.gangana/"
+                  className="w-9 h-9 rounded-full bg-[#222052] text-white flex items-center justify-center hover:bg-[#F5CB5C] hover:text-[#222052] transition-all hover:scale-110 shadow-sm"
+                  aria-label="Facebook"
+                >
+                  <Facebook size={18} />
+                </a>
+                <a
+                  href="https://www.instagram.com/pamu_senanayaka/"
+                  className="w-9 h-9 rounded-full bg-[#222052] text-white flex items-center justify-center hover:bg-[#F5CB5C] hover:text-[#222052] transition-all hover:scale-110 shadow-sm"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={18} />
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/pamudithagss/"
+                  className="w-9 h-9 rounded-full bg-[#222052] text-white flex items-center justify-center hover:bg-[#F5CB5C] hover:text-[#222052] transition-all hover:scale-110 shadow-sm"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={18} />
+                </a>
+                
+              </div>
+            </div>
           </div>
         </div>
       </div>

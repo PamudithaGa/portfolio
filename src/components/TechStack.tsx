@@ -1,133 +1,292 @@
-import React, { useState, useEffect } from "react";
-import MeSittingImg from "../assets/me-sitting.jpg";
-import HologramScene from "./HologramScene";
+import React from "react";
+import {
+  Atom,
+  Code2,
+  Palette,
+  Server,
+  Cpu,
+  Hash,
+  Terminal,
+  Database,
+  Network,
+  Cloud,
+  PenTool,
+  CheckCircle2,
+} from "lucide-react";
 
-const TechStack: React.FC = () => {
-  const tags = [
-    "Software Development",
-    "Web Development",
-    "UI Design",
-    "Technical Documentation",
-    "Web Hosting",
-    "System Design",
-    "Database Design",
-    "Prototyping",
-    "Testing",
-  ];
+type Badge =
+  | "py"
+  | "node"
+  | "react"
+  | "js"
+  | "net"
+  | "cs"
+  | "db"
+  | "sys"
+  | "ui"
+  | "test"
+  | "host"
+  | "proto";
 
-  const icons = [
-    {
-      name: "Python",
-      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
-      description: "Untangles complexity with elegant grace.",
-    },
-    {
-      name: "Node",
-      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg",
-      className: "w-16 h-12 md:w-24 md:h-16",
-      description: "Fuels the swift, boundless race.",
-    },
-    {
-      name: "React",
-      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg",
-      description: "Paints interfaces alive and bright.",
-    },
-    {
-      name: ".NET",
-      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/dotnetcore/dotnetcore-original.svg",
-      description: "Forges backbones of might.",
-    },
-    {
-      name: "MongoDB",
-      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg",
-      description: "Stores data with flexible delight.",
-    },
-    {
-      name: "Flutter",
-      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg",
-      description: "Builds cross-platform dreams in plain sight.",
-    },
-    {
-      name: "C#",
-      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg",
-      description: "The sharp edge of logic and light.",
-    },
-    {
-      name: "JS",
-      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
-      style: "bg-yellow-400 rounded-lg",
-      description: "Weaves seamless worlds in flight.",
-    },
-  ];
+interface Chip {
+  label: string;
+  badge: Badge;
+  badgeLabel: string;
+}
 
-  const [activeIndex, setActiveIndex] = useState(0);
+interface Floor {
+  index: string;
+  eyebrow: string;
+  name: string;
+  tagline: string;
+  chips: Chip[];
+}
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % icons.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [icons.length]);
+const getIcon = (badge: Badge) => {
+  switch (badge) {
+    case "react":
+      return <Atom className="w-4 h-4 animate-spin-slow" />;
+    case "js":
+      return <Code2 className="w-4 h-4" />;
+    case "ui":
+      return <Palette className="w-4 h-4" />;
+    case "node":
+      return <Server className="w-4 h-4" />;
+    case "net":
+      return <Cpu className="w-4 h-4" />;
+    case "cs":
+      return <Hash className="w-4 h-4" />;
+    case "py":
+      return <Terminal className="w-4 h-4" />;
+    case "db":
+      return <Database className="w-4 h-4" />;
+    case "sys":
+      return <Network className="w-4 h-4" />;
+    case "host":
+      return <Cloud className="w-4 h-4" />;
+    case "proto":
+      return <PenTool className="w-4 h-4" />;
+    case "test":
+      return <CheckCircle2 className="w-4 h-4" />;
+    default:
+      return <Code2 className="w-4 h-4" />;
+  }
+};
 
+const floors: Floor[] = [
+  {
+    index: "01",
+    eyebrow: "INTERFACE",
+    name: "What people see & touch",
+    tagline: "Presentation layer",
+    chips: [
+      { label: "React.js", badge: "react", badgeLabel: "R" },
+      { label: "JavaScript", badge: "js", badgeLabel: "JS" },
+      { label: "UI Design", badge: "ui", badgeLabel: "UI" },
+    ],
+  },
+  {
+    index: "02",
+    eyebrow: "LOGIC",
+    name: "Where the rules live",
+    tagline: "Application layer",
+    chips: [
+      { label: "Node.js", badge: "node", badgeLabel: "N" },
+      { label: ".NET", badge: "net", badgeLabel: ".NET" },
+      { label: "C#", badge: "cs", badgeLabel: "C#" },
+      { label: "Python", badge: "py", badgeLabel: "PY" },
+    ],
+  },
+  {
+    index: "03",
+    eyebrow: "DATA",
+    name: "Where truth is stored",
+    tagline: "Persistence layer",
+    chips: [
+      { label: "Database Design", badge: "db", badgeLabel: "DB" },
+      { label: "System Design", badge: "sys", badgeLabel: "SYS" },
+    ],
+  },
+  {
+    index: "04",
+    eyebrow: "FOUNDATION",
+    name: "What keeps it standing",
+    tagline: "Infra & process",
+    chips: [
+      { label: "Web Hosting", badge: "host", badgeLabel: "WEB" },
+      { label: "Prototyping", badge: "proto", badgeLabel: "PR" },
+      { label: "Testing", badge: "test", badgeLabel: "QA" },
+    ],
+  },
+];
+
+const capabilities: string[] = [
+  "Software Development",
+  "Web Development",
+  "UI Design",
+  "Technical Documentation",
+  "Web Hosting",
+  "System Design",
+  "Database Design",
+  "Prototyping",
+  "Testing",
+];
+
+const stats: { value: string; label: string }[] = [
+  { value: "04", label: "CORE LAYERS" },
+  { value: "10+", label: "TOOLS & FRAMEWORKS" },
+  { value: "360°", label: "FULL STACK COVERAGE" },
+];
+
+const ghostWords: { text: string; className: string }[] = [
+  {
+    text: "DEPLOY",
+    className:
+      "top-[6%] left-[4%] text-[46px] [-webkit-text-stroke:1px_rgba(34,32,82,0.06)]",
+  },
+  {
+    text: "BUILD",
+    className:
+      "top-[14%] right-[6%] text-[34px] [-webkit-text-stroke:1px_rgba(245,203,92,0.1)]",
+  },
+  {
+    text: "COMPILE",
+    className:
+      "bottom-[8%] left-[6%] text-[40px] [-webkit-text-stroke:1px_rgba(34,32,82,0.06)]",
+  },
+  {
+    text: "SCALE",
+    className:
+      "bottom-[16%] right-[4%] text-[30px] [-webkit-text-stroke:1px_rgba(34,32,82,0.06)]",
+  },
+];
+
+export default function TechStackSection(): React.ReactElement {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between px-10 py-20 min-h-screen bg-white overflow-hidden relative">
-      {/* Left Side: Text Content */}
-      <div className="md:w-1/2 space-y-8 z-10 relative">
-        <h1 className="text-[#222052] text-6xl font-medium">My Tech Stacks</h1>
+    <section
+      className="relative h-[100dvh] overflow-hidden px-[6vw] py-[110px] font-roboto text-gray-800"
+      style={{
+        backgroundColor: "#f8f9fa",
+        backgroundImage:
+          "radial-gradient(ellipse 700px 500px at 85% 15%, rgba(34, 32, 82, 0.05), transparent 60%), radial-gradient(ellipse 600px 500px at 10% 90%, rgba(245, 203, 92, 0.08), transparent 60%)",
+      }}
+    >
+      {/* grid backdrop */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(34, 32, 82, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 32, 82, 0.06) 1px, transparent 1px)",
+          backgroundSize: "44px 44px",
+          maskImage:
+            "radial-gradient(ellipse 80% 70% at 50% 40%, black 40%, transparent 90%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 80% 70% at 50% 40%, black 40%, transparent 90%)",
+        }}
+      />
 
-        <div className="relative">
-          <div className="text-xl text-gray-800 font-thin space-y-2 relative z-10">
-            <p>Python untangles complexity with elegant grace,</p>
-            <p>Node.js fuels the swift, boundless race,</p>
-            <p>React.js paints interfaces alive and bright,</p>
-            <p>.NET and C# forge backbones of might,</p>
-            <p>While JavaScript weaves seamless worlds in flight.</p>
+      {/* ghost words */}
+      {ghostWords.map((w) => (
+        <div
+          key={w.text}
+          className={`pointer-events-none absolute select-none whitespace-nowrap font-roboto font-extrabold text-transparent tracking-wider ${w.className}`}
+        >
+          {w.text}
+        </div>
+      ))}
+
+      <div className="relative z-[2] mx-auto grid max-w-[1280px] grid-cols-2 items-start gap-[60px]">
+        {/* ---------- LEFT COLUMN ---------- */}
+        <div>
+          <div className="mb-[18px] font-mono text-[13px] tracking-[4px] text-[#222052] before:mr-1 before:text-[#F5CB5C] before:content-['//']">
+            TECH STACK
+          </div>
+
+          <h2 className="mb-[22px] font-roboto text-[clamp(38px,4.2vw,58px)]  leading-[1.02] text-[#222052]">
+            Built in
+            <br />
+            <span className="text-[#F5CB5C]">layers,</span>
+            <br />
+            not shortcuts.
+          </h2>
+
+          <p className="mb-10 max-w-[420px] text-[16.5px] leading-[1.7] text-gray-600">
+            Every system I ship is engineered the same way it&apos;s designed
+            here — from the interface people touch, down to the
+            infrastructure that keeps it running. Each layer earns its place.
+          </p>
+
+          <div className="mb-[46px] flex max-w-[440px] flex-wrap gap-[10px]">
+            {capabilities.map((cap) => (
+              <span
+                key={cap}
+                className="rounded-full border border-gray-200 bg-white px-[14px] py-2 font-mono text-xs text-gray-600 transition-all duration-200 hover:border-[#F5CB5C] hover:bg-[#F5CB5C]/10 hover:text-[#222052]"
+              >
+                {cap}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex gap-[42px] border-t border-gray-200 pt-[30px]">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <b className="block font-roboto text-[30px] text-[#222052]">
+                  {s.value}
+                </b>
+                <span className="font-mono text-[11px] tracking-wide text-gray-500">
+                  {s.label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-3 mt-8">
-          {tags.map((tag, index) => (
-            <span
-              key={index}
-              className="bg-[#F5CB5C] text-[#222052] px-6 py-2 rounded-full text-sm font-semibold shadow-sm"
+        {/* ---------- RIGHT COLUMN: BLUEPRINT TOWER ---------- */}
+        <div className="relative pl-[46px]">
+          {/* vertical conduit with traveling pulse */}
+          <div className="absolute bottom-[6px] left-[14px] top-[6px] w-[2px] bg-gradient-to-b from-transparent via-[rgba(34,32,82,0.15)] to-transparent">
+            <div className="absolute left-1/2 top-0 h-[9px] w-[9px] -translate-x-1/2 animate-[pulseTravel_3.2s_linear_infinite] rounded-full bg-[#222052] shadow-[0_0_12px_3px_rgba(34,32,82,0.35)]" />
+          </div>
+
+          {floors.map((floor) => (
+            <div
+              key={floor.index}
+              className="group relative mb-[22px] rounded-[14px] border border-gray-200 bg-white p-[22px] px-[26px] shadow-sm transition-all duration-200 hover:translate-x-[6px] hover:border-[#F5CB5C] hover:shadow-md"
             >
-              {tag}
-            </span>
+              {/* node dot on the conduit */}
+              <span className="absolute left-[-34px] top-1/2 h-3 w-3 -translate-y-1/2 rounded-full border-2 border-[#222052] bg-[#f8f9fa] transition-colors duration-200 group-hover:border-[#F5CB5C]" />
+
+              <div className="mb-[14px] flex items-baseline justify-between">
+                <div>
+                  <div className="font-mono text-xs tracking-[3px] text-[#F5CB5C]">
+                    {floor.index} · {floor.eyebrow}
+                  </div>
+                  <div className="font-roboto text-[21px]  text-[#222052]">
+                    {floor.name}
+                  </div>
+                </div>
+                <div className="text-[12.5px] text-gray-500">
+                  {floor.tagline}
+                </div>
+              </div>
+
+              <div className="mt-[14px] flex flex-wrap gap-[10px]">
+                {floor.chips.map((chip) => (
+                  <div
+                    key={chip.label}
+                    className="flex items-center gap-2 rounded-lg border border-gray-200 bg-gray-50/50 py-1.5 pl-1.5 pr-3 text-[13px] text-gray-700 hover:bg-gray-100/50 transition-colors"
+                  >
+                    <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-[6px] bg-[#222052]/10 text-[#222052]">
+                      {getIcon(chip.badge)}
+                    </span>
+                    {chip.label}
+                  </div>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
-
-      {/* Right Side: Image and Icons */}
-      <div className="md:w-1/2 relative flex justify-center items-center mt-10 md:mt-0 h-[600px]">
-        {/* The Shape Behind Image */}
-        <div className="absolute left-1/2 mt-6 -translate-x-1/2 top-1/2 -translate-y-1/2 h-[620px] w-[450px] hidden md:block z-0">
-          <svg
-            viewBox="0 0 450 550"
-            className="h-full w-full fill-[#222052]"
-            preserveAspectRatio="none"
-          >
-            <path d="M0,0 L405,40 L405,510 L0,550 Z" />
-          </svg>
-        </div>
-
-        {/* Person Image */}
-        <div className="relative z-10 h-full flex items-end">
-          <img
-            src={MeSittingImg}
-            alt="Pamuditha"
-            className="h-[500px] md:h-[550px] object-contain drop-shadow-2xl"
-          />
-        </div>
-
-        {/* Hologram Scene Overlay - Centered on the person */}
-        <div className="absolute inset-0 flex justify-center items-center z-20 pointer-events-none">
-          <div className="w-[600px] h-[600px] relative">
-            <HologramScene icons={icons} activeIndex={activeIndex} />
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
   );
-};
-
-export default TechStack;
+}

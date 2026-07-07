@@ -5,15 +5,15 @@ import TechStack from "./components/TechStack";
 import Project from "./components/Project";
 import Contact from "./components/Coontact";
 import Footer from "./components/Footer";
-import UnderDevelopment from "./components/UnderDevelopment";
+// import UnderDevelopment from "./components/UnderDevelopment";
 
 function App() {
   // Set this to false when you want to show the full website
-  const isUnderDevelopment = true;
+  // const isUnderDevelopment = true;
 
-  if (isUnderDevelopment) {
-    return <UnderDevelopment />;
-  }
+  // if (isUnderDevelopment) {
+  //   return <UnderDevelopment />;
+  // }
 
   return (
     <>
@@ -21,19 +21,19 @@ function App() {
         <Hero />
       </section>
 
-      <section id="about" className="mt-30 w-[90%] mx-auto">
+      <section id="about" className="mt-32 w-[80%] mx-auto">
         <About />
       </section>
 
-      <section id="tech-stack" className="mt-30 w-[90%] mx-auto">
+      <section id="tech-stack" className="mt-32">
         <TechStack />
       </section>
       
-      <section id="projects" className="mt-30 w-[90%] mx-auto">
+      <section id="projects" className="mt-32 w-[98%] mx-auto">
         <Project />
       </section>
       
-      <section id="contact" className="mt-30 w-[90%] mx-auto">
+      <section id="contact" className="mt-32 w-[90%] mx-auto">
         <Contact />
       </section>
       

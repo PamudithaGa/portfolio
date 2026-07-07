@@ -84,7 +84,7 @@ const Hero: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="bg-[#09090B] mt-4 py-1 px-5 border border-white/5 rounded-2xl relative overflow-hidden bg-grid"
+      className="bg-[#09090B] mt-4 py-1 px-5 h-[96dvh] border border-white/5 rounded-2xl relative overflow-hidden bg-grid"
     >
       {/* Background Glow */}
       <div className="absolute inset-0 bg-radial-gradient pointer-events-none" />

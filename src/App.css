@@ -12,3 +12,33 @@
 .bg-radial-gradient {
   background: radial-gradient(circle at center, rgba(34, 32, 82, 0.3) 0%, transparent 70%);
 }
+
+@keyframes pulseTravel {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes spinSlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 8s linear infinite;
+}

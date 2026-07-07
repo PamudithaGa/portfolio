@@ -17,27 +17,27 @@ function App() {
 
   return (
     <>
-      <section id="home" className="w-[98%] mx-auto">
+      <section id="home" className="w-[98%] mx-auto ">
         <Hero />
       </section>
 
-      <section id="about" className="mt-32 w-[80%] mx-auto">
+      <section id="about" className="w-[80%] mt-10 mx-auto">
         <About />
       </section>
 
-      <section id="tech-stack" className="mt-32">
+      <section id="tech-stack" className="mt-10">
         <TechStack />
       </section>
       
-      <section id="projects" className="mt-32 w-[98%] mx-auto">
+      <section id="projects" className="mt-10 w-[98%] mx-auto">
         <Project />
       </section>
       
-      <section id="contact" className="mt-32 w-[90%] mx-auto">
+      <section id="contact" className="mt-20 w-[90%] mx-auto">
         <Contact />
       </section>
       
-      <section>
+      <section className="mt-10">
         <Footer />
       </section>
     </>

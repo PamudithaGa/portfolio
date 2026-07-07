@@ -195,7 +195,7 @@ export default function TechStackSection(): React.ReactElement {
         </div>
       ))}
 
-      <div className="relative z-[2] mx-auto grid max-w-[1280px] grid-cols-2 items-start gap-[60px]">
+      <div className="relative z-[2] mx-auto grid w-[1280px] grid-cols-2 items-start gap-[60px]">
         {/* ---------- LEFT COLUMN ---------- */}
         <div>
           <div className="mb-[18px] font-mono text-[13px] tracking-[4px] text-[#222052] before:mr-1 before:text-[#F5CB5C] before:content-['//']">

@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Facebook, Instagram, Linkedin, ChevronDown } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  ChevronDown,
+  Github,
+} from "lucide-react";
 
 const Coontact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -15,7 +21,7 @@ const Coontact: React.FC = () => {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -30,7 +36,10 @@ const Coontact: React.FC = () => {
   return (
     <div className="w-full bg-[#f8f9fa] rounded-[40px] p-8 md:p-16 flex flex-col-2 gap-12 lg:gap-20 font-sans border border-gray-100 shadow-sm">
       {/* Left Column - Form */}
-      <form onSubmit={handleSubmit} className="w-full lg:w-[55%] flex flex-col gap-5">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full lg:w-[55%] flex flex-col gap-5"
+      >
         <div>
           <input
             type="text"
@@ -144,14 +153,13 @@ const Coontact: React.FC = () => {
             </span>
           </h2>
           <p className="text-gray-500 mt-4 text-base leading-relaxed max-w-lg">
-            Stop guessing. Let's create a plan that actually works. Schedule your
-            free consultation call today.
+            Stop guessing. Let's create a plan that actually works. Schedule
+            your free consultation call today.
           </p>
         </div>
 
         {/* Info Grid (Locations vs. Phone/Mail/Socials) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-          
           {/* Right stack (Phone, E-mail, Socials) */}
           <div className="flex flex-col gap-6">
             {/* Phone Card with floating WhatsApp button */}
@@ -213,7 +221,16 @@ const Coontact: React.FC = () => {
                 >
                   <Linkedin size={18} />
                 </a>
-                
+
+                <a
+                  href="https://github.com/PamudithaGa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full bg-[#222052] text-white flex items-center justify-center hover:bg-[#F5CB5C] hover:text-[#222052] transition-all hover:scale-110 shadow-sm"
+                  aria-label="GitHub"
+                >
+                  <Github size={18} />
+                </a>
               </div>
             </div>
           </div>

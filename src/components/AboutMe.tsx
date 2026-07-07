@@ -19,21 +19,24 @@ const AboutMe: React.FC = () => {
         <p className="text-lg text-justify leading-relaxed text-gray-800">
           I am a multi-disciplinary Full-Stack Developer, Systems Architect, and
           Creative Strategist working at the intersection of robust engineering
-          and high-end digital branding. <br/><br/>
-          With core expertise in full-stack
-          engineering utilizing the MERN Stack, I specialize in designing and
-          deploying clean, scalable software architectures. My technical
-          workflow centers on structured system design and precise logic
-          implementation, allowing me to transform intricate backend
-          requirements into smooth, highly optimized user experiences.<br/><br/>
-           What sets me apart is my dual focus on technology and brand building. I don't
-          just build the infrastructure; I shape the identity. My experience
-          spans the entire creative lifecycle—from product development and
-          high-end minimalist packaging design to digital media production and
-          data-driven marketing execution. By fusing analytical system
-          architecture with contemporary visual storytelling, I create cohesive
-          digital products that are technically superior and commercially
-          compelling.
+          and high-end digital branding. <br />
+          <br />
+          With core expertise in full-stack engineering utilizing the MERN
+          Stack, I specialize in designing and deploying clean, scalable
+          software architectures. My technical workflow centers on structured
+          system design and precise logic implementation, allowing me to
+          transform intricate backend requirements into smooth, highly optimized
+          user experiences.
+          <br />
+          <br />
+          What sets me apart is my dual focus on technology and brand building.
+          I don't just build the infrastructure; I shape the identity. My
+          experience spans the entire creative lifecycle—from product
+          development and high-end minimalist packaging design to digital media
+          production and data-driven marketing execution. By fusing analytical
+          system architecture with contemporary visual storytelling, I create
+          cohesive digital products that are technically superior and
+          commercially compelling.
         </p>
         <div className="flex gap-4 mt-6">
           <a

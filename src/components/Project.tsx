@@ -77,8 +77,8 @@ export default function ProjectShowcase(): React.ReactElement {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2">
-          <div className="relative overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.15)] ">
+        <div className="grid grid-cols-4 gap-8 h-[70dvh]">
+          <div className="col-span-1 relative overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.15)]">
             <img
               src="/images/profile-pointing.png"
               alt="Portrait"
@@ -86,8 +86,8 @@ export default function ProjectShowcase(): React.ReactElement {
             />
           </div>
 
-          <div className="relative w-full overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-10">
-            <div className="grid grid-cols-1">
+          <div className="col-span-3 relative w-full overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-10">
+            <div className="grid grid-cols-2 gap-8">
               {/* text content */}
               <div>
                 <h3 className="mb-1 font-[Poppins] text-[28px] font-bold text-[#f2f1f8]">
@@ -149,7 +149,7 @@ export default function ProjectShowcase(): React.ReactElement {
             </div>
 
             {/* nav controls */}
-            <div className="mt-10 flex justify-end gap-3">
+            <div className="-mt-4 flex justify-end gap-3">
               <button
                 onClick={goPrev}
                 aria-label="Previous project"

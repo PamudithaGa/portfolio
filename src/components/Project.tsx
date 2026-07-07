@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
-
+import regencyImg from "../assets/regency.png";
+import ehelepola from "../assets/ehelepola2.png";
+import Lavia from "../assets/CafeLavia.png";
+import RobotCanvas from "./RobotCanvas";
 interface Project {
   client: string;
   title: string;
@@ -13,18 +16,19 @@ interface Project {
 
 const projects: Project[] = [
   {
-    client: "Kandy Rental Car",
-    title: "Rental Car Website Development",
+    client: "Ehelepola Walawwa",
+    title: "Heritage Website Design",
     description:
-      "Designed and developed a responsive, user-friendly website for a car rental service, featuring real-time vehicle availability, booking functionality, and location-based search to enhance customer experience and streamline operations.",
+      "Ehelepola Walawwa is a heritage homestay located in Kandy, Sri Lanka. It offers a unique blend of traditional Sri Lankan architecture and modern amenities, providing guests with an unforgettable stay.",
     challenges: [
-      "Simplifying a complicated design process",
-      "Giving consumers a seamless digital experience when booking their car",
-      "Real time experience of exploring available vehicles",
-      "A comprehensive back-end platform that allowed real time updates",
+      "Digitalizing a complex historical narrative into a seamless virtual environment.",
+      "A seamless digital experience across Wax Museum exhibits, shopping, and dining.",
+      "Lag-free, high-performance visual display for hyper-realistic wax figures and architecture.",
+      "Balancing historical accuracy with modern UI for researchers and tourists.",
     ],
-    tags: ["HTML", "CSS", "JavaScript"],
-    image: "/images/projects/kandy-rental-car.png",
+    tags: ["React", "TypeScript", "Tailwind CSS", "MySQL", "Node.js"],
+    image: ehelepola,
+    link: "https://www.ehelepolawalawwa.lk",
   },
   {
     client: "Regency Travel House",
@@ -38,7 +42,23 @@ const projects: Project[] = [
       "Giving the client an easy way to update packages themselves",
     ],
     tags: ["React", "Tailwind CSS", "Node.js"],
-    image: "/images/projects/regency-travel-house.png",
+    image: regencyImg,
+    link: "https://regency.knowmo.me",
+  },
+  {
+    client: "Cafe Lavia",
+    title: "Cafe Website Design",
+    description:
+      "Cafe Lavia is a cafe located in Kandy, Sri Lanka. It offers a unique blend of traditional Sri Lankan architecture and modern amenities, providing guests with an unforgettable stay.",
+    challenges: [
+      "Enhancing visual storytelling to capture Cafe Lavia’s authentic atmosphere",
+      "Creating an intuitive interface for browsing the menu and discovering daily specials",
+      "Ensuring high-quality image and video display across all devices",
+      "Developing a flexible system for updates and seasonal promotions",
+    ],
+    tags: ["HTML", "CSS", "JavaScript"],
+    image: Lavia,
+    link: "https://www.cafelavia.net/",
   },
 ];
 
@@ -46,10 +66,8 @@ export default function ProjectShowcase(): React.ReactElement {
   const [index, setIndex] = useState<number>(0);
   const project = projects[index];
 
-  const goPrev = () =>
-    setIndex((i) => (i === 0 ? projects.length - 1 : i - 1));
-  const goNext = () =>
-    setIndex((i) => (i === projects.length - 1 ? 0 : i + 1));
+  const goPrev = () => setIndex((i) => (i === 0 ? projects.length - 1 : i - 1));
+  const goNext = () => setIndex((i) => (i === projects.length - 1 ? 0 : i + 1));
 
   return (
     <section
@@ -78,14 +96,6 @@ export default function ProjectShowcase(): React.ReactElement {
         </div>
 
         <div className="grid grid-cols-4 gap-8 h-[70dvh]">
-          <div className="col-span-1 relative overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.15)]">
-            <img
-              src="/images/profile-pointing.png"
-              alt="Portrait"
-              className="h-full w-full object-cover object-top"
-            />
-          </div>
-
           <div className="col-span-3 relative w-full overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-10">
             <div className="grid grid-cols-2 gap-8">
               {/* text content */}
@@ -94,7 +104,7 @@ export default function ProjectShowcase(): React.ReactElement {
                   {project.title}
                 </h3>
                 <p className="mb-5 text-sm font-medium text-[#9d8cf5]">
-                  — {project.client}
+                  - {project.client}
                 </p>
 
                 <p className="mb-7 max-w-[480px] text-[15px] leading-[1.75] text-[#b4b2cc]">
@@ -116,7 +126,7 @@ export default function ProjectShowcase(): React.ReactElement {
                   ))}
                 </ul>
 
-                <div className="flex flex-wrap gap-3">
+                <div className="absolute bottom-8 left-8 flex flex-wrap gap-3">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
@@ -130,16 +140,16 @@ export default function ProjectShowcase(): React.ReactElement {
 
               {/* mockup preview, layered/stacked for depth */}
               <div className="relative  min-h-[260px]">
-                <div className="absolute right-2 top-6 h-[220px] w-[280px] rotate-3 rounded-xl border border-[rgba(157,140,245,0.2)] bg-[#1a1f3a]" />
-                <div className="absolute right-6 top-3 h-[220px] w-[280px] -rotate-2 rounded-xl border border-[rgba(157,140,245,0.25)] bg-[#141830]" />
+                <div className="absolute right-2 top-6 h-[190px] w-[360px] rotate-3 rounded-xl border border-[rgba(157,140,245,0.2)] bg-[#1a1f3a]" />
+                <div className="absolute right-6 top-3 h-[190px] w-[360px] -rotate-2 rounded-xl border border-[rgba(157,140,245,0.25)] bg-[#141830]" />
                 <a
                   href={project.link ?? "#"}
-                  className="group absolute right-4 top-0 block h-[220px] w-[280px] overflow-hidden rounded-xl border border-[rgba(157,140,245,0.3)] shadow-2xl"
+                  className="group absolute right-4 top-0 block h-[190px] w-[360px] overflow-hidden rounded-xl border border-[rgba(157,140,245,0.3)] shadow-2xl"
                 >
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-"
                   />
                   <span className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-[#0a0a16]/70 text-white backdrop-blur-sm transition-colors group-hover:bg-[#f2c14e] group-hover:text-[#0a0a16]">
                     <ArrowUpRight size={16} />
@@ -149,22 +159,26 @@ export default function ProjectShowcase(): React.ReactElement {
             </div>
 
             {/* nav controls */}
-            <div className="-mt-4 flex justify-end gap-3">
+            <div className="absolute bottom-8 right-8 -mt-4 flex justify-end gap-3">
               <button
                 onClick={goPrev}
                 aria-label="Previous project"
-                className="flex h-11 w-11 items-center justify-center rounded-full bg-[#141830] text-[#f2f1f8] transition-colors hover:bg-[#1f2547]"
+                className="flex h-11 cursor-pointer w-11 items-center justify-center rounded-full bg-[#141830] text-[#f2f1f8] transition-colors hover:bg-[#1f2547]"
               >
                 <ArrowLeft size={18} />
               </button>
               <button
                 onClick={goNext}
                 aria-label="Next project"
-                className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f2c14e] text-[#0a0a16] transition-colors hover:bg-[#f7d375]"
+                className="flex h-11 cursor-pointer w-11 items-center justify-center rounded-full bg-[#f2c14e] text-[#0a0a16] transition-colors hover:bg-[#f7d375]"
               >
                 <ArrowRight size={18} />
               </button>
             </div>
+          </div>
+
+          <div className="col-span-1 relative overflow-hidden rounded-[20px] border-[rgba(157,140,245,0.15)]">
+            <RobotCanvas cameraFov={40} className="w-full h-full min-h-[350px]" />
           </div>
         </div>
       </div>

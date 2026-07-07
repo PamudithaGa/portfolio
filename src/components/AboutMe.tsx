@@ -1,10 +1,11 @@
 import React from "react";
 import AboutImg from "../assets/1st.png";
-import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Github } from "lucide-react";
+
 
 const AboutMe: React.FC = () => {
   return (
-    <div className="flex w-full h-[50vh] justify-center items-center mb-20 gap-32">
+    <div className="flex w-full h-[10d0vh] justify-center items-center mb-20 gap-32">
       <div className="w-1/3 flex justify-center items-end relative">
         <div className="w-[350px] h-[100px] bg-[#222052] rounded-[100%] absolute -bottom-5 animate-moveLeftRight"></div>
         <div className="w-[350px] h-[100px] border-4 border-[#F5CB5C] rounded-[100%] absolute -bottom-5 animate-moveRightLeft"></div>
@@ -65,6 +66,15 @@ const AboutMe: React.FC = () => {
             aria-label="LinkedIn"
           >
             <Linkedin size={20} />
+          </a>
+          <a
+            href="https://github.com/PamudithaGa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full bg-[#222052] text-white flex items-center justify-center hover:bg-[#F5CB5C] hover:text-[#222052] transition-all hover:scale-110 shadow-sm"
+            aria-label="GitHub"
+          >
+            <Github size={20} />
           </a>
         </div>
       </div>

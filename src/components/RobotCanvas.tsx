@@ -92,12 +92,17 @@ function ProceduralRobot() {
   );
 }
 
-const RobotCanvas = () => {
+interface RobotCanvasProps {
+  cameraFov?: number;
+  className?: string;
+}
+
+const RobotCanvas = ({ cameraFov = 28, className = "w-full h-full min-h-[500px]" }: RobotCanvasProps) => {
   return (
-    <div className="w-full h-full min-h-[500px] cursor-grab active:cursor-grabbing">
+    <div className={`${className} cursor-grab active:cursor-grabbing`}>
       <Canvas 
         shadows 
-        camera={{ position: [0, 0, 8], fov: 28 }}
+        camera={{ position: [0, 0, 8], fov: cameraFov }}
         gl={{ antialias: true, alpha: true }}
       >
         <ambientLight intensity={0.5} />

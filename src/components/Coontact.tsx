@@ -34,7 +34,7 @@ const Coontact: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col-reverse lg:flex-row  gap-12 lg:gap-20 w-full h-auto lg:h-[90dvh] bg-[#f8f9fa] rounded-[24px] sm:rounded-[40px] p-6 sm:p-8 md:p-16 font-sans border border-gray-100 shadow-sm">
+    <div className="flex flex-col-reverse lg:flex-row  gap-8 lg:gap-10 w-full h-auto lg:h-[90dvh] bg-[#f8f9fa] rounded-[24px] sm:rounded-[40px] p-6 sm:p-8 md:p-16 font-sans border border-gray-100 shadow-sm">
       <form
         onSubmit={handleSubmit}
         className="w-full lg:w-[55%] grid grid-cols-1 gap-3"
@@ -160,7 +160,7 @@ const Coontact: React.FC = () => {
         {/* Info Grid (Phone/Mail/Socials) */}
         <div className="flex flex-col gap-6 w-full mt-auto">
           {/* Phone and Email side-by-side */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
             {/* Phone Card with floating WhatsApp button */}
             <div className="bg-gradient-to-r from-[#222052] to-[#121133] text-white p-6 rounded-[24px] relative shadow-md flex flex-col justify-center gap-1.5 min-h-[120px]">
               <p className="font-bold text-lg">Phone :</p>
@@ -187,7 +187,7 @@ const Coontact: React.FC = () => {
             </div>
 
             {/* E-mail Card */}
-            <div className="bg-white p-6 rounded-[24px] border border-gray-100 shadow-sm flex flex-col justify-center gap-1.5 min-h-[120px]">
+            <div className="bg-white p-5 rounded-[24px] border border-gray-100 shadow-sm flex flex-col justify-center gap-1.5 min-h-[120px]">
               <p className="font-bold text-gray-900 text-lg">E-mail :</p>
               <p className="text-gray-600 text-sm break-all font-medium">
                 pamudithagangana45@gmail.com

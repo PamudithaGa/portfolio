@@ -1,5 +1,6 @@
 import React from "react";
-import AboutImg from "../assets/1st.png";
+import Me from "../assets/my_Edit2.png";
+// import AboutImg from "../assets/1st.png";
 import BiththaraMalli from "../assets/biththara_malli.png";
 import Kolam from "../assets/kolam2.png";
 import SM from "../assets/sm_travels.png";
@@ -8,19 +9,36 @@ import { Facebook, Instagram, Linkedin, Github } from "lucide-react";
 const AboutMe: React.FC = () => {
   return (
     <>
-      <div className="flex w-full h-[100dvh] justify-center items-center gap-32">
-        <div className="w-1/3 flex justify-center items-end relative">
-          <div className="w-[350px] h-[90px] bg-[#222052] rounded-[100%] absolute -bottom-5 animate-moveLeftRight"></div>
-          <div className="w-[350px] h-[90px] border-4 border-[#F5CB5C] rounded-[100%] absolute -bottom-5 animate-moveRightLeft"></div>
-          <img
-            src={AboutImg}
-            alt="About Me"
-            className="h-[390px] object-cover z-10 relative mb-5"
-          />
+      <div className="flex flex-col lg:flex-row w-full h-auto lg:h-full justify-center items-center gap-12 lg:gap-32 py-12 lg:py-0">
+        <div className="w-full lg:w-1/3 flex justify-center items-end relative mb-16 lg:mb-0">
+          <div className="relative flex justify-center items-end">
+            <div className="w-[280px] sm:w-[350px] h-[70px] sm:h-[90px] bg-[#222052] rounded-[100%] z-10 absolute -bottom-5 animate-moveLeftRight"></div>
+            <div className="w-[280px] sm:w-[350px] h-[70px] sm:h-[90px] border-4 border-[#F5CB5C] z-10 rounded-[100%] absolute -bottom-5 animate-moveRightLeft"></div>
+            <img
+              src={Me}
+              alt="About Me"
+              className="h-[300px] sm:h-[390px] object-cover z-10 relative mb-5"
+            />
+
+            {/* L-shaped "Mr. SIGMA" text overlay */}
+            <div className="absolute left-1 bottom-14 z-50 origin-bottom-left -rotate-90 select-none pointer-events-none">
+              <span className="font-roboto text-5xl sm:text-6xl font-bold tracking-widest text-white [-webkit-text-stroke:2px_black]">
+                Mr.
+              </span>
+            </div>
+            <div className="absolute left-6 bottom-4 z-50 select-none pointer-events-none">
+              <span className="font-roboto font-extrabold text-5xl sm:text-6xl  tracking-[0.2em] text-white/0 [-webkit-text-stroke:2px_white]">
+                SIGMA
+              </span>
+            </div>
+          </div>
         </div>
-        <div className="w-2/3 flex flex-col justify-center">
-          <h1 className="text-[#222052] text-6xl font- mb-8">Who am I?</h1>
-          <p className="text-md text-justify leading-relaxed text-gray-800">
+        <div className="w-full lg:w-2/3 flex flex-col justify-center px-6 sm:px-12 lg:px-0">
+          <h1 className="text-[#222052] text-4xl sm:text-6xl font-bold lg:font-normal mb-6 sm:mb-8">
+            Who am I?
+          </h1>
+          {/* Desktop Description */}
+          <p className="hidden lg:block text-md text-justify leading-relaxed text-gray-800">
             I am a multi-disciplinary Full-Stack Developer, Systems Architect,
             and Creative Strategist working at the intersection of robust
             engineering and high-end digital branding. <br />
@@ -43,11 +61,20 @@ const AboutMe: React.FC = () => {
             technically superior and commercially compelling.
           </p>
 
+          {/* Mobile Description */}
+          <p className="block lg:hidden text-md text-justify leading-relaxed text-gray-800">
+            I am a multi-disciplinary Full-Stack Developer, Systems Architect,
+            and Creative Strategist working at the intersection of robust
+            engineering and digital branding. Fusing analytical system design
+            with contemporary visual storytelling, I design and deploy scalable
+            applications and cohesive brand identities.
+          </p>
+
           <div className="mt-8">
             <h3 className="text-xs font-mono tracking-[4px] text-[#222052]/60 uppercase mb-4 before:content-['//_'] before:text-[#F5CB5C] before:font-bold">
               My Venture from Mr. SIGMA Group of Companies
             </h3>
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {/* <div className="group relative flex items-center gap-4 p-4 rounded-2xl bg-white/20 hover:bg-white/40 border border-[#222052]/10 hover:border-[#F5CB5C]/50 backdrop-blur-md transition-all duration-300 hover:shadow-[0_10px_35px_-5px_rgba(34,32,82,0.1)] hover:-translate-y-1">
                 <div className="w-14 h-14 rounded-xl overflow-hidden bg-white/60 p-1 flex items-center justify-center border border-[#222052]/5 group-hover:scale-105 transition-transform duration-300">
                   <img

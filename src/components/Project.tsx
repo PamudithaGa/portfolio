@@ -75,7 +75,7 @@ export default function ProjectShowcase(): React.ReactElement {
 
   return (
     <section
-      className="relative overflow-hidden px-[6vw]  h-[95dvh] rounded-2xl "
+      className="relative overflow-hidden px-[6vw] py-2 lg:py-0 h-[99dvh] lg:h-[95dvh] rounded-2xl"
       style={{ backgroundColor: "#0a0a16" }}
     >
       {/* ambient glow, consistent with other sections */}
@@ -87,9 +87,9 @@ export default function ProjectShowcase(): React.ReactElement {
         }}
       />
 
-      <div className="relative z-[2] mx-auto w-[1280px]">
+      <div className="relative z-[2] mx-auto w-full max-w-[1280px]">
         {/* heading */}
-        <div className="mb-4 flex items-end justify-between">
+        <div className="mb-2 flex items-end justify-between">
           <div className="font-mono text-[13px] tracking-[4px] text-[#f2c14e]">
             {String(index + 1).padStart(2, "0")} /{" "}
             {String(projects.length).padStart(2, "0")}
@@ -99,9 +99,9 @@ export default function ProjectShowcase(): React.ReactElement {
           </h2>
         </div>
 
-        <div className="grid grid-cols-4 gap-8 h-[80dvh]">
-          <div className="col-span-3 relative w-full overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-10">
-            <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-4 gap-8 h-[88dvh] lg:h-[80dvh]">
+          <div className="col-span-4 lg:col-span-3 relative w-full overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-6 sm:p-10 pb-36 sm:pb-28 lg:pb-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-">
               {/* text content */}
               <div>
                 <h3 className="mb-1 font-[Poppins] text-[28px] font-bold text-[#f2f1f8]">
@@ -138,7 +138,7 @@ export default function ProjectShowcase(): React.ReactElement {
                   ))}
                 </ul>
 
-                <div className="absolute bottom-8 left-8 flex flex-wrap gap-3">
+                <div className="hidden absolute bottom-6 left-6 sm:bottom-8 sm:left-8 lg:flex flex-wrap gap-3 max-w-[calc(100%-120px)] lg:max-w-none">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
@@ -157,12 +157,12 @@ export default function ProjectShowcase(): React.ReactElement {
               </div>
 
               {/* mockup preview, layered/stacked for depth */}
-              <div className="relative  min-h-[260px]">
-                <div className="absolute right-2 top-6 h-[190px] w-[360px] rotate-3 rounded-xl border border-[rgba(157,140,245,0.2)] bg-[#1a1f3a]" />
-                <div className="absolute right-6 top-3 h-[190px] w-[360px] -rotate-2 rounded-xl border border-[rgba(157,140,245,0.25)] bg-[#141830]" />
+              <div className="relative h-[200px] lg:h-[260px] flex justify-center lg:block mt-2 lg:mt-0">
+                <div className="absolute right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-2 top-6 h-[130px] lg:h-[190px] w-[280px] sm:w-[360px] rotate-3 rounded-xl border border-[rgba(157,140,245,0.2)] bg-[#1a1f3a]" />
+                <div className="absolute right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-6 top-3 h-[130px] lg:h-[190px] w-[280px] sm:w-[360px] -rotate-2 rounded-xl border border-[rgba(157,140,245,0.25)] bg-[#141830]" />
                 <a
                   href={project.link ?? "#"}
-                  className="group absolute right-4 top-0 block h-[190px] w-[360px] overflow-hidden rounded-xl border border-[rgba(157,140,245,0.3)] shadow-2xl"
+                  className="group absolute right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-4 top-0 block h-[150px] lg:h-[190px] w-[280px] sm:w-[360px] overflow-hidden rounded-xl border border-[rgba(157,140,245,0.3)] shadow-2xl"
                 >
                   <img
                     src={project.image}
@@ -177,7 +177,7 @@ export default function ProjectShowcase(): React.ReactElement {
             </div>
 
             {/* nav controls */}
-            <div className="absolute bottom-8 right-8 -mt-4 flex justify-end gap-3">
+            <div className="absolute lg:bottom-6 lg:right-6 sm:bottom-8 sm:right-8 -mt-4 flex justify-end gap-3">
               <button
                 onClick={goPrev}
                 aria-label="Previous project"
@@ -195,7 +195,7 @@ export default function ProjectShowcase(): React.ReactElement {
             </div>
           </div>
 
-          <div className="col-span-1 relative overflow-hidden rounded-[20px] border-[rgba(157,140,245,0.15)]">
+          <div className="hidden lg:block col-span-1 relative overflow-hidden rounded-[20px] border-[rgba(157,140,245,0.15)]">
             <RobotCanvas cameraFov={40} className="w-full h-full min-h-[350px]" />
           </div>
         </div>

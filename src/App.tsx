@@ -21,11 +21,11 @@ function App() {
         <Hero />
       </section>
 
-      <section id="about" className="w-[80%] mt-10 mx-auto">
+      <section id="about" className="lg:w-[80%] w-[100%] mt-0 lg:h-[100dvh] mx-auto">
         <About />
       </section>
 
-      <section id="tech-stack" className="mt-10">
+      <section id="tech-stack" className="mt-0 lg:h-[100dvh]">
         <TechStack />
       </section>
       
@@ -33,7 +33,7 @@ function App() {
         <Project />
       </section>
       
-      <section id="contact" className="mt-20 w-[90%] mx-auto">
+      <section id="contact" className="lg:mt-20 mt-10 w-[90%] mx-auto">
         <Contact />
       </section>
       

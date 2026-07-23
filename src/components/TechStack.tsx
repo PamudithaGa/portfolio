@@ -164,7 +164,7 @@ const ghostWords: { text: string; className: string }[] = [
 export default function TechStackSection(): React.ReactElement {
   return (
     <section
-      className="relative h-[100dvh] overflow-hidden px-[6vw] py-[50px] font-roboto text-gray-800"
+      className="relative h-auto lg:h-[100dvh] overflow-hidden px-[6vw] py-12 lg:py-[50px] font-roboto text-gray-800"
       style={{
         backgroundColor: "#f8f9fa",
         backgroundImage:
@@ -189,13 +189,13 @@ export default function TechStackSection(): React.ReactElement {
       {ghostWords.map((w) => (
         <div
           key={w.text}
-          className={`pointer-events-none absolute select-none whitespace-nowrap font-roboto font-extrabold text-transparent tracking-wider ${w.className}`}
+          className={`pointer-events-none absolute hidden lg:block select-none whitespace-nowrap font-roboto font-extrabold text-transparent tracking-wider ${w.className}`}
         >
           {w.text}
         </div>
       ))}
 
-      <div className="relative z-[2] mx-auto grid w-[1280px] grid-cols-2 items-start gap-[60px]">
+      <div className="relative z-[2] mx-auto grid w-full max-w-[1280px] grid-cols-1 lg:grid-cols-2 items-start gap-12 lg:gap-[60px]">
         {/* ---------- LEFT COLUMN ---------- */}
         <div>
           <div className="mb-[18px] font-mono text-[13px] tracking-[4px] text-[#222052] before:mr-1 before:text-[#F5CB5C] before:content-['//']">
@@ -216,7 +216,7 @@ export default function TechStackSection(): React.ReactElement {
             infrastructure that keeps it running. Each layer earns its place.
           </p>
 
-          <div className="mb-[6px] flex max-w-[440px] flex-wrap gap-[10px]">
+          <div className="mb-[6px] flex w-full max-w-none lg:max-w-[440px] flex-wrap gap-[10px]">
             {capabilities.map((cap) => (
               <span
                 key={cap}
@@ -227,7 +227,7 @@ export default function TechStackSection(): React.ReactElement {
             ))}
           </div>
 
-          <div className="flex gap-[42px] border-t border-gray-200 pt-[30px]">
+          <div className="flex flex-wrap gap-6 sm:gap-[42px] border-t border-gray-200 pt-[30px]">
             {stats.map((s) => (
               <div key={s.label}>
                 <b className="block font-roboto text-[30px] text-[#222052]">
@@ -242,21 +242,21 @@ export default function TechStackSection(): React.ReactElement {
         </div>
 
         {/* ---------- RIGHT COLUMN: BLUEPRINT TOWER ---------- */}
-        <div className="relative pl-[46px]">
+        <div className="hidden lg:block relative lg:pl-[46px]">
           {/* vertical conduit with traveling pulse */}
-          <div className="absolute bottom-[6px] left-[14px] top-[6px] w-[2px] bg-gradient-to-b from-transparent via-[rgba(34,32,82,0.15)] to-transparent">
+          <div className="hidden lg:block absolute bottom-[6px] left-[14px] top-[6px] w-[2px] bg-gradient-to-b from-transparent via-[rgba(34,32,82,0.15)] to-transparent">
             <div className="absolute left-1/2 top-0 h-[9px] w-[9px] -translate-x-1/2 animate-[pulseTravel_3.2s_linear_infinite] rounded-full bg-[#222052] shadow-[0_0_12px_3px_rgba(34,32,82,0.35)]" />
           </div>
 
           {floors.map((floor) => (
             <div
               key={floor.index}
-              className="group relative mb-[12px] rounded-[14px] border border-gray-200 bg-white p-[22px] px-[26px] shadow-sm transition-all duration-200 hover:translate-x-[6px] hover:border-[#F5CB5C] hover:shadow-md"
+              className="group  relative mb-[12px] rounded-[14px] border border-gray-200 bg-white p-[22px] px-[26px] shadow-sm transition-all duration-200 hover:translate-x-[6px] hover:border-[#F5CB5C] hover:shadow-md"
             >
               {/* node dot on the conduit */}
-              <span className="absolute left-[-34px] top-1/2 h-3 w-3 -translate-y-1/2 rounded-full border-2 border-[#222052] bg-[#f8f9fa] transition-colors duration-200 group-hover:border-[#F5CB5C]" />
+              <span className="hidden lg:block absolute left-[-34px] top-1/2 h-3 w-3 -translate-y-1/2 rounded-full border-2 border-[#222052] bg-[#f8f9fa] transition-colors duration-200 group-hover:border-[#F5CB5C]" />
 
-              <div className="mb-[14px] flex items-baseline justify-between">
+              <div className="mb-[14px] flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-0">
                 <div>
                   <div className="font-mono text-xs tracking-[3px] text-[#F5CB5C]">
                     {floor.index} · {floor.eyebrow}

@@ -74,7 +74,7 @@ const Coontact: React.FC = () => {
 
         {/* Phone Input with Country Code Selector */}
         <div className="flex gap-3 w-full">
-          <div className="relative w-32 flex-shrink-0">
+          <div className="relative w-1/3 flex-shrink-0">
             <select
               name="phoneCode"
               value={formData.phoneCode}
@@ -93,10 +93,10 @@ const Coontact: React.FC = () => {
           <input
             type="tel"
             name="phone"
-            placeholder="Enter your phone number"
+            placeholder="Enter phone number"
             value={formData.phone}
             onChange={handleChange}
-            className="flex-grow p-4 bg-white border border-gray-200 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors"
+            className="flex-grow p-4 w-2/3 bg-white border border-gray-200 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors"
           />
         </div>
 

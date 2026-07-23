@@ -34,8 +34,10 @@ const Coontact: React.FC = () => {
   };
 
   return (
-    <div className=" lg:flex-row flex-col-reverse flex  gap-12 lg:gap-20 w-full bg-[#f8f9fa] rounded-[40px] p-6 sm:p-8 md:p-16 font-sans border border-gray-100 shadow-sm">
-      <form onSubmit={handleSubmit}  className="w-full lg:w-[55%] grid grid-cols-1 gap-5"
+    <div className="flex flex-col-reverse lg:flex-row  gap-12 lg:gap-20 w-full h-auto lg:h-[90dvh] bg-[#f8f9fa] rounded-[24px] sm:rounded-[40px] p-6 sm:p-8 md:p-16 font-sans border border-gray-100 shadow-sm">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full lg:w-[55%] grid grid-cols-1 gap-3"
       >
         <div>
           <input
@@ -130,7 +132,7 @@ const Coontact: React.FC = () => {
           />
         </div>
 
-        <div className="mt-2">
+        <div className="mt-">
           <button
             type="submit"
             className="bg-[#222052] hover:bg-[#F5CB5C] text-white hover:text-[#222052] font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.03] transition-all shadow-md"
@@ -155,10 +157,10 @@ const Coontact: React.FC = () => {
           </p>
         </div>
 
-        {/* Info Grid (Locations vs. Phone/Mail/Socials) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-          {/* Right stack (Phone, E-mail, Socials) */}
-          <div className="flex flex-col gap-6">
+        {/* Info Grid (Phone/Mail/Socials) */}
+        <div className="flex flex-col gap-6 w-full mt-auto">
+          {/* Phone and Email side-by-side */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
             {/* Phone Card with floating WhatsApp button */}
             <div className="bg-gradient-to-r from-[#222052] to-[#121133] text-white p-6 rounded-[24px] relative shadow-md flex flex-col justify-center gap-1.5 min-h-[120px]">
               <p className="font-bold text-lg">Phone :</p>
@@ -185,50 +187,50 @@ const Coontact: React.FC = () => {
             </div>
 
             {/* E-mail Card */}
-            <div className="bg-white p-6 rounded-[24px] border border-gray-100 shadow-sm flex flex-col justify-center gap-1 min-h-[90px]">
+            <div className="bg-white p-6 rounded-[24px] border border-gray-100 shadow-sm flex flex-col justify-center gap-1.5 min-h-[120px]">
               <p className="font-bold text-gray-900 text-lg">E-mail :</p>
               <p className="text-gray-600 text-sm break-all font-medium">
                 pamudithagangana45@gmail.com
               </p>
             </div>
+          </div>
 
-            {/* Follow Us */}
-            <div className="flex flex-col gap-3">
-              <p className="font-bold text-gray-900 text-base">Follow Me:</p>
-              <div className="flex flex-wrap gap-2.5">
-                <a
-                  href="https://www.facebook.com/pamuditha.gangana/"
-                  className="w-9 h-9 rounded-full bg-[#222052] text-white flex items-center justify-center hover:bg-[#F5CB5C] hover:text-[#222052] transition-all hover:scale-110 shadow-sm"
-                  aria-label="Facebook"
-                >
-                  <Facebook size={18} />
-                </a>
-                <a
-                  href="https://www.instagram.com/pamu_senanayaka/"
-                  className="w-9 h-9 rounded-full bg-[#222052] text-white flex items-center justify-center hover:bg-[#F5CB5C] hover:text-[#222052] transition-all hover:scale-110 shadow-sm"
-                  aria-label="Instagram"
-                >
-                  <Instagram size={18} />
-                </a>
+          {/* Follow Us */}
+          <div className="flex flex-col gap-3">
+            <p className="font-bold text-gray-900 text-base">Follow Me:</p>
+            <div className="flex flex-wrap gap-2.5">
+              <a
+                href="https://www.facebook.com/pamuditha.gangana/"
+                className="w-9 h-9 rounded-full bg-[#222052] text-white flex items-center justify-center hover:bg-[#F5CB5C] hover:text-[#222052] transition-all hover:scale-110 shadow-sm"
+                aria-label="Facebook"
+              >
+                <Facebook size={18} />
+              </a>
+              <a
+                href="https://www.instagram.com/pamu_senanayaka/"
+                className="w-9 h-9 rounded-full bg-[#222052] text-white flex items-center justify-center hover:bg-[#F5CB5C] hover:text-[#222052] transition-all hover:scale-110 shadow-sm"
+                aria-label="Instagram"
+              >
+                <Instagram size={18} />
+              </a>
 
-                <a
-                  href="https://www.linkedin.com/in/pamudithagss/"
-                  className="w-9 h-9 rounded-full bg-[#222052] text-white flex items-center justify-center hover:bg-[#F5CB5C] hover:text-[#222052] transition-all hover:scale-110 shadow-sm"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin size={18} />
-                </a>
+              <a
+                href="https://www.linkedin.com/in/pamudithagss/"
+                className="w-9 h-9 rounded-full bg-[#222052] text-white flex items-center justify-center hover:bg-[#F5CB5C] hover:text-[#222052] transition-all hover:scale-110 shadow-sm"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} />
+              </a>
 
-                <a
-                  href="https://github.com/PamudithaGa"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-[#222052] text-white flex items-center justify-center hover:bg-[#F5CB5C] hover:text-[#222052] transition-all hover:scale-110 shadow-sm"
-                  aria-label="GitHub"
-                >
-                  <Github size={18} />
-                </a>
-              </div>
+              <a
+                href="https://github.com/PamudithaGa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-[#222052] text-white flex items-center justify-center hover:bg-[#F5CB5C] hover:text-[#222052] transition-all hover:scale-110 shadow-sm"
+                aria-label="GitHub"
+              >
+                <Github size={18} />
+              </a>
             </div>
           </div>
         </div>

@@ -84,7 +84,7 @@ const Hero: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="bg-[#09090B] mt-4 py-1 px-5 h-[96dvh] border border-white/5 rounded-2xl relative overflow-hidden bg-grid"
+      className="bg-[#09090B] mt-4 py-1 px-5 h-[97dvh] lg:h-[96dvh] border border-white/5 rounded-2xl relative overflow-hidden bg-grid"
     >
       {/* Background Glow */}
       <div className="absolute inset-0 bg-radial-gradient pointer-events-none" />
@@ -93,14 +93,14 @@ const Hero: React.FC = () => {
         <Navbar />
       </section>
 
-      <div className="w-full h-[93vh] flex flex-col lg:flex-row justify-center items-center text-white rounded-xl">
+      <div className="w-full h-auto lg:h-[93vh] flex flex-col lg:flex-row justify-center items-center text-white rounded-xl py-8 lg:py-0">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="h-full w-full  lg:w-1/2 mt-70  flex flex-col justify-center items-start px-10 lg:pl-20 z-10 relative"
+          className="h-full w-full lg:w-1/2 mt-6 lg:mt-70 flex flex-col justify-center items-start px-6 sm:px-10 lg:pl-20 z-10 relative"
         >
-          <div className=" flex space-between w-full h-full">
+          <div className="flex flex-col xl:flex-row justify-between w-full h-full gap-8 xl:gap-0">
             <div className="w-full xl:w-auto z-20">
               
               <div className="space-y-1 ">
@@ -151,7 +151,7 @@ const Hero: React.FC = () => {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="absolute top-[100%] right-[5%] lg:right-[15%] w-[600px] h-[600px] lg:w-[800px] lg:h-[800px] -translate-y-1/2 pointer-events-none mix-blend-screen z-0 select-none opacity-30"
+              className="absolute top-[100%] right-[5%] lg:right-[15%] w-[320px] h-[320px] sm:w-[600px] sm:h-[600px] lg:w-[800px] lg:h-[800px] -translate-y-1/2 pointer-events-none mix-blend-screen z-0 select-none opacity-30"
             >
               <div className="relative w-full h-full font-roboto">
                 {[
@@ -324,14 +324,14 @@ const Hero: React.FC = () => {
           </div>
         </motion.div>
 
-        <div className=" w-full lg:w-1/2 h-[500px] lg:h-full relative mt-10 lg:-mt-50">
-          <RobotCanvas />
+        <div className=" w-full lg:w-1/2 h-[350px] sm:h-[500px] lg:h-full relative -mt-16 sm:mt-5 lg:-mt-50">
+          <RobotCanvas cameraFov={36} />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-indigo-500/20 blur-[100px] rounded-full z-10" />
         </div>
       </div>
 
       {/* Modern Decorative Element */}
-      <div className="absolute bottom-10 right-10 flex gap-4">
+      <div className="hidden md:flex absolute bottom-10 right-10 gap-4">
         <motion.div
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 3, repeat: Infinity }}

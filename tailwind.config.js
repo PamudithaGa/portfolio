@@ -8,9 +8,6 @@ module.exports = {
         mrDeHaviland: ["Mr De Haviland", "cursive"],
         roboto: ['"Roboto"', "sans-serif"],
       },
-      screens: {
-        'lg': '1024px', 
-      },
       keyframes: {
         moveLeftRight: {
           "0%, 100%": { transform: "translateX(-15px)" },

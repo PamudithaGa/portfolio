@@ -1,116 +1,205 @@
-import React from "react";
-import { ArrowLeft, ArrowRight, MoveUpRight } from "lucide-react";
-import me from "../assets/me.png";
-import projectImg from "../assets/pic1.png";
+import React, { useState } from "react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Handshake } from "lucide-react";
+import regencyImg from "../assets/regency.png";
+import ehelepola from "../assets/ehelepola2.png";
+import Lavia from "../assets/CafeLavia.png";
+import RobotCanvas from "./RobotCanvas";
+interface Project {
+  client: string;
+  title: string;
+  description: string;
+  challenges: string[];
+  tags: string[];
+  image: string;
+  link?: string;
+  collaboration?: string;
+}
 
-const Project: React.FC = () => {
+const projects: Project[] = [
+  {
+    client: "Ehelepola Walawwa",
+    title: "Heritage Website Design",
+    description:
+      "Ehelepola Walawwa is a heritage homestay located in Kandy, Sri Lanka. It offers a unique blend of traditional Sri Lankan architecture and modern amenities, providing guests with an unforgettable stay.",
+    challenges: [
+      "Digitalizing a complex historical narrative into a seamless virtual environment.",
+      "A seamless digital experience across Wax Museum exhibits, shopping, and dining.",
+      "Lag-free, high-performance visual display for hyper-realistic wax figures and architecture.",
+      "Balancing historical accuracy with modern UI for researchers and tourists.",
+    ],
+    tags: ["React", "TypeScript", "Tailwind CSS", "MySQL", "Node.js"],
+    image: ehelepola,
+    link: "https://www.ehelepolawalawwa.lk",
+    collaboration: "AIOH",
+  },
+  {
+    client: "Regency Travel House",
+    title: "Travel Agency Website Design",
+    description:
+      "Built a custom travel packages platform that lets visitors browse curated destinations and accommodations, with a clean booking flow designed to convert casual browsers into confirmed bookings.",
+    challenges: [
+      "Presenting rich destination content without overwhelming the page",
+      "Designing a booking flow that feels effortless on mobile",
+      "Keeping load times fast despite heavy imagery",
+      "Giving the client an easy way to update packages themselves",
+    ],
+    tags: ["React", "Tailwind CSS", "Node.js"],
+    image: regencyImg,
+    link: "https://regency.knowmo.me",
+    collaboration: "AIOH",
+  },
+  {
+    client: "Cafe Lavia",
+    title: "Cafe Website Design",
+    description:
+      "Cafe Lavia is a cafe located in Kandy, Sri Lanka. It offers a unique blend of traditional Sri Lankan architecture and modern amenities, providing guests with an unforgettable stay.",
+    challenges: [
+      "Enhancing visual storytelling to capture Cafe Lavia’s authentic atmosphere",
+      "Creating an intuitive interface for browsing the menu and discovering daily specials",
+      "Ensuring high-quality image and video display across all devices",
+      "Developing a flexible system for updates and seasonal promotions",
+    ],
+    tags: ["HTML", "CSS", "JavaScript"],
+    image: Lavia,
+    link: "https://www.cafelavia.net/",
+    collaboration: "AIOH",
+  },
+];
+
+export default function ProjectShowcase(): React.ReactElement {
+  const [index, setIndex] = useState<number>(0);
+  const project = projects[index];
+
+  const goPrev = () => setIndex((i) => (i === 0 ? projects.length - 1 : i - 1));
+  const goNext = () => setIndex((i) => (i === projects.length - 1 ? 0 : i + 1));
+
   return (
-    <div className="flex flex-col gap-8 md:gap-12 w-full text-white font-sans">
-      <div className="flex justify-end">
-        <h1 className="text-5xl font-bold text-blue-950 dark:text-gray-100 mb-10">
-          What I did
-        </h1>
-      </div>
+    <section
+      className="relative overflow-hidden px-[6vw]  h-[95dvh] rounded-2xl "
+      style={{ backgroundColor: "#0a0a16" }}
+    >
+      {/* ambient glow, consistent with other sections */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(ellipse 700px 500px at 90% 10%, rgba(157,140,245,0.08), transparent 60%), radial-gradient(ellipse 600px 500px at 5% 95%, rgba(242,193,78,0.05), transparent 60%)",
+        }}
+      />
 
-      <div className="flex flex-col lg:flex-row gap-6 h-auto lg:h-[500px]">
-        {/* Left Card - Person */}
-        <div className="w-full lg:w-1/3 bg-[#021833] rounded-[30px] flex items-end justify-center pt-10 px-4 overflow-hidden relative">
-          <img
-            src={me}
-            alt="Pamuditha Senanayaka"
-            className="w-full h-auto object-cover max-w-[300px] z-10"
-          />
-          <div className="absolute top-20 left-10 opacity-10 text-9xl font-bold text-white pointer-events-none"></div>
+      <div className="relative z-[2] mx-auto w-[1280px]">
+        {/* heading */}
+        <div className="mb-14 flex items-end justify-between">
+          <div className="font-mono text-[13px] tracking-[4px] text-[#f2c14e]">
+            {String(index + 1).padStart(2, "0")} /{" "}
+            {String(projects.length).padStart(2, "0")}
+          </div>
+          <h2 className="font-[Poppins] text-[clamp(36px,4vw,56px)] font-extrabold text-[#f2f1f8]">
+            What I did
+          </h2>
         </div>
 
-        {/* Right Card - Project Details */}
-        <div className="w-full lg:w-2/3 bg-[#021833] rounded-[30px] p-8 lg:p-12 relative overflow-hidden flex flex-col justify-between">
-          <div className="flex flex-col lg:flex-row gap-8 z-10">
-            <div className="flex-1 space-y-6">
+        <div className="grid grid-cols-4 gap-8 h-[70dvh]">
+          <div className="col-span-3 relative w-full overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-10">
+            <div className="grid grid-cols-2 gap-8">
+              {/* text content */}
               <div>
-                <h2 className="text-3xl font-regular text-white">
-                  Rental Car Website Development
-                </h2>
-                <p className="text-sm font-light text-gray-300 mt-1">
-                  - Kandy Rental Car
-                </p>
-              </div>
-
-              <p className="text-gray-400 text-sm leading-relaxed max-w-md">
-                Designed and developed a responsive, user-friendly website for a
-                car rental service, featuring real-time vehicle availability,
-                booking functionality, and location-based search to enhance
-                customer experience and streamline operations.
-              </p>
-
-              <div className="space-y-3">
-                <h3 className="text-lg font-medium text-white">
-                  Challenges, we solved
+                <h3 className="mb-1 font-[Poppins] text-[28px] font-bold text-[#f2f1f8]">
+                  {project.title}
                 </h3>
-                <ul className="space-y-2">
-                  {[
-                    "Simplifying a complicated design process",
-                    "Giving consumers a seamless digital experience when designing their car",
-                    "Real time experience of designing your car",
-                    "A comprehensive back-end platform that allowed real time updates",
-                  ].map((item, index) => (
+                <div className="flex items-center flex-wrap gap-2.5 mb-5">
+                  <p className="text-sm font-medium text-[#9d8cf5]">
+                    - {project.client}
+                  </p>
+                  {project.collaboration && (
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[rgba(97,176,240,0.1)] border border-[rgba(97,176,240,0.3)] text-[#61b0f0] backdrop-blur-sm">
+                      <Handshake size={12} />
+                      Collab with {project.collaboration}
+                    </span>
+                  )}
+                </div>
+
+                <p className="mb-7 max-w-[480px] text-[15px] leading-[1.75] text-[#b4b2cc]">
+                  {project.description}
+                </p>
+
+                <h4 className="mb-3 font-[Poppins] text-lg font-semibold text-[#f2f1f8]">
+                  Challenges, we solved
+                </h4>
+                <ul className="mb-8 space-y-2.5">
+                  {project.challenges.map((c) => (
                     <li
-                      key={index}
-                      className="flex items-start gap-3 text-sm text-gray-300"
+                      key={c}
+                      className="flex items-start gap-3 text-[14.5px] leading-snug text-[#c9c6ec]"
                     >
-                      <span className="w-2 h-2 rounded-full bg-blue-500 mt-1.5 shrink-0" />
-                      {item}
+                      <span className="mt-[7px] h-[7px] w-[7px] flex-shrink-0 rounded-full bg-[#61b0f0]" />
+                      {c}
                     </li>
                   ))}
                 </ul>
-              </div>
-            </div>
 
-            {/* Project Image Decoration */}
-            <div className="hidden lg:flex flex-col justify-center items-center w-2/5 relative">
-              <div className="absolute right-[-60px] top-1/2 -translate-y-1/2 w-[350px] h-[250px] bg-white/5 rounded-2xl rotate-3 backdrop-blur-sm z-0 border border-white/10"></div>
-              <div className="relative z-10 w-full">
-                <img
-                  src={projectImg}
-                  alt="Project Screenshot"
-                  className="rounded-xl shadow-2xl w-full h-auto object-cover border border-white/10 hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/40 rounded-xl opacity-0 hover:opacity-100 transition-opacity duration-300 group cursor-pointer">
-                  <MoveUpRight className="text-white w-10 h-10" />
+                <div className="absolute bottom-8 left-8 flex flex-wrap gap-3">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-[#f2c14e] px-5 py-2 text-sm font-semibold text-[#0a0a16]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                  {project.collaboration && (
+                    <span className="rounded-full bg-gradient-to-r from-[#9d8cf5] to-[#61b0f0] px-5 py-2 text-sm font-semibold text-white shadow-[0_0_15px_rgba(157,140,245,0.25)] flex items-center gap-1.5">
+                      <Handshake size={14} />
+                      Collaboration
+                    </span>
+                  )}
                 </div>
               </div>
-            </div>
-          </div>
 
-          {/* Tech Stack & Navigation */}
-          <div className="flex items-center justify-between mt-8 z-10">
-            <div className="flex gap-3">
-              {["HTML", "CSS"].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-5 py-2 bg-[#FCD34D] text-black text-sm font-bold rounded-full"
+              {/* mockup preview, layered/stacked for depth */}
+              <div className="relative  min-h-[260px]">
+                <div className="absolute right-2 top-6 h-[190px] w-[360px] rotate-3 rounded-xl border border-[rgba(157,140,245,0.2)] bg-[#1a1f3a]" />
+                <div className="absolute right-6 top-3 h-[190px] w-[360px] -rotate-2 rounded-xl border border-[rgba(157,140,245,0.25)] bg-[#141830]" />
+                <a
+                  href={project.link ?? "#"}
+                  className="group absolute right-4 top-0 block h-[190px] w-[360px] overflow-hidden rounded-xl border border-[rgba(157,140,245,0.3)] shadow-2xl"
                 >
-                  {tech}
-                </span>
-              ))}
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-"
+                  />
+                  <span className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-[#0a0a16]/70 text-white backdrop-blur-sm transition-colors group-hover:bg-[#f2c14e] group-hover:text-[#0a0a16]">
+                    <ArrowUpRight size={16} />
+                  </span>
+                </a>
+              </div>
             </div>
 
-            <div className="flex gap-4">
-              <button className="w-12 h-12 rounded-full bg-[#0a2e52] flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
-                <ArrowLeft className="w-5 h-5" />
+            {/* nav controls */}
+            <div className="absolute bottom-8 right-8 -mt-4 flex justify-end gap-3">
+              <button
+                onClick={goPrev}
+                aria-label="Previous project"
+                className="flex h-11 cursor-pointer w-11 items-center justify-center rounded-full bg-[#141830] text-[#f2f1f8] transition-colors hover:bg-[#1f2547]"
+              >
+                <ArrowLeft size={18} />
               </button>
-              <button className="w-12 h-12 rounded-full bg-[#FCD34D] flex items-center justify-center text-black hover:bg-yellow-400 transition-colors">
-                <ArrowRight className="w-5 h-5" />
+              <button
+                onClick={goNext}
+                aria-label="Next project"
+                className="flex h-11 cursor-pointer w-11 items-center justify-center rounded-full bg-[#f2c14e] text-[#0a0a16] transition-colors hover:bg-[#f7d375]"
+              >
+                <ArrowRight size={18} />
               </button>
             </div>
           </div>
 
-          {/* Background Gradient/Decoration */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
+          <div className="col-span-1 relative overflow-hidden rounded-[20px] border-[rgba(157,140,245,0.15)]">
+            <RobotCanvas cameraFov={40} className="w-full h-full min-h-[350px]" />
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default Project;
+}

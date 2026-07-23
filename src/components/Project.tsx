@@ -89,7 +89,7 @@ export default function ProjectShowcase(): React.ReactElement {
 
       <div className="relative z-[2] mx-auto w-[1280px]">
         {/* heading */}
-        <div className="mb-14 flex items-end justify-between">
+        <div className="mb-4 flex items-end justify-between">
           <div className="font-mono text-[13px] tracking-[4px] text-[#f2c14e]">
             {String(index + 1).padStart(2, "0")} /{" "}
             {String(projects.length).padStart(2, "0")}
@@ -99,7 +99,7 @@ export default function ProjectShowcase(): React.ReactElement {
           </h2>
         </div>
 
-        <div className="grid grid-cols-4 gap-8 h-[70dvh]">
+        <div className="grid grid-cols-4 gap-8 h-[80dvh]">
           <div className="col-span-3 relative w-full overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-10">
             <div className="grid grid-cols-2 gap-8">
               {/* text content */}

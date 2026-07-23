@@ -10,17 +10,17 @@ const AboutMe: React.FC = () => {
     <>
       <div className="flex w-full h-[100dvh] justify-center items-center gap-32">
         <div className="w-1/3 flex justify-center items-end relative">
-          <div className="w-[350px] h-[100px] bg-[#222052] rounded-[100%] absolute -bottom-5 animate-moveLeftRight"></div>
-          <div className="w-[350px] h-[100px] border-4 border-[#F5CB5C] rounded-[100%] absolute -bottom-5 animate-moveRightLeft"></div>
+          <div className="w-[350px] h-[90px] bg-[#222052] rounded-[100%] absolute -bottom-5 animate-moveLeftRight"></div>
+          <div className="w-[350px] h-[90px] border-4 border-[#F5CB5C] rounded-[100%] absolute -bottom-5 animate-moveRightLeft"></div>
           <img
             src={AboutImg}
             alt="About Me"
-            className="h-[400px] object-cover z-10 relative mb-5"
+            className="h-[390px] object-cover z-10 relative mb-5"
           />
         </div>
         <div className="w-2/3 flex flex-col justify-center">
           <h1 className="text-[#222052] text-6xl font- mb-8">Who am I?</h1>
-          <p className="text-lg text-justify leading-relaxed text-gray-800">
+          <p className="text-md text-justify leading-relaxed text-gray-800">
             I am a multi-disciplinary Full-Stack Developer, Systems Architect,
             and Creative Strategist working at the intersection of robust
             engineering and high-end digital branding. <br />
@@ -43,7 +43,7 @@ const AboutMe: React.FC = () => {
             technically superior and commercially compelling.
           </p>
 
-          <div className="mt-12">
+          <div className="mt-8">
             <h3 className="text-xs font-mono tracking-[4px] text-[#222052]/60 uppercase mb-4 before:content-['//_'] before:text-[#F5CB5C] before:font-bold">
               My Venture from Mr. SIGMA Group of Companies
             </h3>
@@ -69,7 +69,7 @@ const AboutMe: React.FC = () => {
               </div> */}
 
               <div className="group relative flex items-center gap-4 p-4 rounded-2xl bg-white/20 hover:bg-white/40 border border-[#222052]/10 hover:border-[#F5CB5C]/50 backdrop-blur-md transition-all duration-300 hover:shadow-[0_10px_35px_-5px_rgba(34,32,82,0.1)] hover:-translate-y-1">
-                <div className="w-14 h-14 rounded-xl overflow-hidden bg-white/60 p-1 flex items-center justify-center border border-[#222052]/5 group-hover:scale-105 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-xl overflow-hidden bg-white/60 p-1 flex items-center justify-center border border-[#222052]/5 group-hover:scale-105 transition-transform duration-300">
                   <img
                     src={BiththaraMalli}
                     alt="Biththara Malli"
@@ -88,7 +88,7 @@ const AboutMe: React.FC = () => {
               </div>
 
               <div className="group relative flex items-center gap-4 p-4 rounded-2xl bg-white/20 hover:bg-white/40 border border-[#222052]/10 hover:border-[#F5CB5C]/50 backdrop-blur-md transition-all duration-300 hover:shadow-[0_10px_35px_-5px_rgba(34,32,82,0.1)] hover:-translate-y-1">
-                <div className="w-14 h-14 rounded-xl overflow-hidden bg-white/60 p-1 flex items-center justify-center border border-[#222052]/5 group-hover:scale-105 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-xl overflow-hidden bg-white/60 p-1 flex items-center justify-center border border-[#222052]/5 group-hover:scale-105 transition-transform duration-300">
                   <img
                     src={SM}
                     alt="SM"
@@ -107,7 +107,7 @@ const AboutMe: React.FC = () => {
               </div>
 
               <div className="group relative flex items-center gap-4 p-4 rounded-2xl bg-white/20 hover:bg-white/40 border border-[#222052]/10 hover:border-[#F5CB5C]/50 backdrop-blur-md transition-all duration-300 hover:shadow-[0_10px_35px_-5px_rgba(34,32,82,0.1)] hover:-translate-y-1">
-                <div className="w-14 h-14 rounded-xl overflow-hidden bg-white/60 p-1 flex items-center justify-center border border-[#222052]/5 group-hover:scale-105 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-xl overflow-hidden bg-white/60 p-1 flex items-center justify-center border border-[#222052]/5 group-hover:scale-105 transition-transform duration-300">
                   <img
                     src={Kolam}
                     alt="Kolam"

@@ -164,7 +164,7 @@ const ghostWords: { text: string; className: string }[] = [
 export default function TechStackSection(): React.ReactElement {
   return (
     <section
-      className="relative h-[100dvh] overflow-hidden px-[6vw] py-[110px] font-roboto text-gray-800"
+      className="relative h-[100dvh] overflow-hidden px-[6vw] py-[50px] font-roboto text-gray-800"
       style={{
         backgroundColor: "#f8f9fa",
         backgroundImage:
@@ -216,7 +216,7 @@ export default function TechStackSection(): React.ReactElement {
             infrastructure that keeps it running. Each layer earns its place.
           </p>
 
-          <div className="mb-[46px] flex max-w-[440px] flex-wrap gap-[10px]">
+          <div className="mb-[6px] flex max-w-[440px] flex-wrap gap-[10px]">
             {capabilities.map((cap) => (
               <span
                 key={cap}
@@ -251,7 +251,7 @@ export default function TechStackSection(): React.ReactElement {
           {floors.map((floor) => (
             <div
               key={floor.index}
-              className="group relative mb-[22px] rounded-[14px] border border-gray-200 bg-white p-[22px] px-[26px] shadow-sm transition-all duration-200 hover:translate-x-[6px] hover:border-[#F5CB5C] hover:shadow-md"
+              className="group relative mb-[12px] rounded-[14px] border border-gray-200 bg-white p-[22px] px-[26px] shadow-sm transition-all duration-200 hover:translate-x-[6px] hover:border-[#F5CB5C] hover:shadow-md"
             >
               {/* node dot on the conduit */}
               <span className="absolute left-[-34px] top-1/2 h-3 w-3 -translate-y-1/2 rounded-full border-2 border-[#222052] bg-[#f8f9fa] transition-colors duration-200 group-hover:border-[#F5CB5C]" />

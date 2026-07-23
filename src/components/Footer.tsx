@@ -111,6 +111,16 @@ const Footer: React.FC = () => {
                   Biththara Malli
                 </a>
               </li>
+
+              <li>
+                <a
+                  href="#contact"
+                  className="hover:text-[#F5CB5C] transition-colors duration-200 flex items-center gap-1.5 group"
+                >
+                  <span className="h-1 w-1 rounded-full bg-[#222052] group-hover:bg-[#F5CB5C] transition-colors" />
+                  SM Travels
+                </a>
+              </li>
               <li>
                 <a
                   href="#contact"
@@ -185,7 +195,7 @@ const Footer: React.FC = () => {
           </p>
           <p className="text-[#8e8ca6] tracking-wider">
             Designed & Built By{" "}
-            <span className="text-white font-bold">Mr.SIGMA</span>
+            <span className="text-white font-bold">Mr.SIGMA Group of Companies</span>
           </p>
         </div>
       </div>

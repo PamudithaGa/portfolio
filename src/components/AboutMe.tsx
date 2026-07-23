@@ -2,7 +2,7 @@ import React from "react";
 import AboutImg from "../assets/1st.png";
 import BiththaraMalli from "../assets/biththara_malli.png";
 import Kolam from "../assets/kolam2.png";
-import Sigma from "../assets/sigmaLogo.jpg";
+import SM from "../assets/sm_travels.png";
 import { Facebook, Instagram, Linkedin, Github } from "lucide-react";
 
 const AboutMe: React.FC = () => {
@@ -45,41 +45,82 @@ const AboutMe: React.FC = () => {
 
           <div className="mt-12">
             <h3 className="text-xs font-mono tracking-[4px] text-[#222052]/60 uppercase mb-4 before:content-['//_'] before:text-[#F5CB5C] before:font-bold">
-              My Ventures
+              My Venture from Mr. SIGMA Group of Companies
             </h3>
             <div className="grid grid-cols-3 gap-5">
-              {/* Card 1: Sigma */}
-              <div className="group relative flex items-center gap-4 p-4 rounded-2xl bg-white/20 hover:bg-white/40 border border-[#222052]/10 hover:border-[#F5CB5C]/50 backdrop-blur-md transition-all duration-300 hover:shadow-[0_10px_35px_-5px_rgba(34,32,82,0.1)] hover:-translate-y-1">
+              {/* <div className="group relative flex items-center gap-4 p-4 rounded-2xl bg-white/20 hover:bg-white/40 border border-[#222052]/10 hover:border-[#F5CB5C]/50 backdrop-blur-md transition-all duration-300 hover:shadow-[0_10px_35px_-5px_rgba(34,32,82,0.1)] hover:-translate-y-1">
                 <div className="w-14 h-14 rounded-xl overflow-hidden bg-white/60 p-1 flex items-center justify-center border border-[#222052]/5 group-hover:scale-105 transition-transform duration-300">
-                  <img src={Sigma} alt="Sigma" className="w-full h-full object-cover rounded-lg" />
+                  <img
+                    src={Sigma}
+                    alt="Sigma"
+                    className="w-full h-full object-cover rounded-lg"
+                  />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#222052] text-base leading-tight">Mr.SIGMA Group</h4>
-                  <p className="text-[11px] text-gray-500 font-medium mt-0.5"> Invesment & Enterprenership</p>
+                  <h4 className="font-bold text-[#222052] text-base leading-tight">
+                    Mr.SIGMA Group
+                  </h4>
+                  <p className="text-[11px] text-gray-500 font-medium mt-0.5">
+                    {" "}
+                    Invesment & Enterprenership
+                  </p>
+                </div>
+                <div className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-[#F5CB5C] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div> */}
+
+              <div className="group relative flex items-center gap-4 p-4 rounded-2xl bg-white/20 hover:bg-white/40 border border-[#222052]/10 hover:border-[#F5CB5C]/50 backdrop-blur-md transition-all duration-300 hover:shadow-[0_10px_35px_-5px_rgba(34,32,82,0.1)] hover:-translate-y-1">
+                <div className="w-14 h-14 rounded-xl overflow-hidden bg-white/60 p-1 flex items-center justify-center border border-[#222052]/5 group-hover:scale-105 transition-transform duration-300">
+                  <img
+                    src={BiththaraMalli}
+                    alt="Biththara Malli"
+                    className="w-full h-full object-contain rounded-lg"
+                  />
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#222052] text-base leading-tight">
+                    Biththara Malli
+                  </h4>
+                  <p className="text-[11px] text-gray-500 font-medium mt-0.5">
+                    Food & Beverage
+                  </p>
                 </div>
                 <div className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-[#F5CB5C] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
-              {/* Card 2: Biththara Malli */}
               <div className="group relative flex items-center gap-4 p-4 rounded-2xl bg-white/20 hover:bg-white/40 border border-[#222052]/10 hover:border-[#F5CB5C]/50 backdrop-blur-md transition-all duration-300 hover:shadow-[0_10px_35px_-5px_rgba(34,32,82,0.1)] hover:-translate-y-1">
                 <div className="w-14 h-14 rounded-xl overflow-hidden bg-white/60 p-1 flex items-center justify-center border border-[#222052]/5 group-hover:scale-105 transition-transform duration-300">
-                  <img src={BiththaraMalli} alt="Biththara Malli" className="w-full h-full object-contain rounded-lg" />
+                  <img
+                    src={SM}
+                    alt="SM"
+                    className="w-full h-full object-contain rounded-lg"
+                  />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#222052] text-base leading-tight">Biththara Malli</h4>
-                  <p className="text-[11px] text-gray-500 font-medium mt-0.5">Food & Beverage</p>
+                  <h4 className="font-bold text-[#222052] text-base leading-tight">
+                    SM Travels
+                  </h4>
+                  <p className="text-[11px] text-gray-500 font-medium mt-0.5">
+                    Travel & Tourism
+                  </p>
                 </div>
                 <div className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-[#F5CB5C] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
-              {/* Card 3: Kolam */}
               <div className="group relative flex items-center gap-4 p-4 rounded-2xl bg-white/20 hover:bg-white/40 border border-[#222052]/10 hover:border-[#F5CB5C]/50 backdrop-blur-md transition-all duration-300 hover:shadow-[0_10px_35px_-5px_rgba(34,32,82,0.1)] hover:-translate-y-1">
                 <div className="w-14 h-14 rounded-xl overflow-hidden bg-white/60 p-1 flex items-center justify-center border border-[#222052]/5 group-hover:scale-105 transition-transform duration-300">
-                  <img src={Kolam} alt="Kolam" className="w-full h-full object-contain rounded-lg" />
+                  <img
+                    src={Kolam}
+                    alt="Kolam"
+                    className="w-full h-full object-contain rounded-lg"
+                  />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#222052] text-base leading-tight">Kolam</h4>
-                  <p className="text-[11px] text-gray-500 font-medium mt-0.5">Creative Brand</p>
+                  <h4 className="font-bold text-[#222052] text-base leading-tight">
+                    Kolam
+                  </h4>
+                  <p className="text-[11px] text-gray-500 font-medium mt-0.5">
+                    Creative Brand
+                  </p>
                 </div>
                 <div className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-[#F5CB5C] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>

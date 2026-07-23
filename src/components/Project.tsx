@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Handshake } from "lucide-react";
 import regencyImg from "../assets/regency.png";
 import ehelepola from "../assets/ehelepola2.png";
 import Lavia from "../assets/CafeLavia.png";
@@ -12,6 +12,7 @@ interface Project {
   tags: string[];
   image: string;
   link?: string;
+  collaboration?: string;
 }
 
 const projects: Project[] = [
@@ -29,6 +30,7 @@ const projects: Project[] = [
     tags: ["React", "TypeScript", "Tailwind CSS", "MySQL", "Node.js"],
     image: ehelepola,
     link: "https://www.ehelepolawalawwa.lk",
+    collaboration: "AIOH",
   },
   {
     client: "Regency Travel House",
@@ -44,6 +46,7 @@ const projects: Project[] = [
     tags: ["React", "Tailwind CSS", "Node.js"],
     image: regencyImg,
     link: "https://regency.knowmo.me",
+    collaboration: "AIOH",
   },
   {
     client: "Cafe Lavia",
@@ -59,6 +62,7 @@ const projects: Project[] = [
     tags: ["HTML", "CSS", "JavaScript"],
     image: Lavia,
     link: "https://www.cafelavia.net/",
+    collaboration: "AIOH",
   },
 ];
 
@@ -103,9 +107,17 @@ export default function ProjectShowcase(): React.ReactElement {
                 <h3 className="mb-1 font-[Poppins] text-[28px] font-bold text-[#f2f1f8]">
                   {project.title}
                 </h3>
-                <p className="mb-5 text-sm font-medium text-[#9d8cf5]">
-                  - {project.client}
-                </p>
+                <div className="flex items-center flex-wrap gap-2.5 mb-5">
+                  <p className="text-sm font-medium text-[#9d8cf5]">
+                    - {project.client}
+                  </p>
+                  {project.collaboration && (
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[rgba(97,176,240,0.1)] border border-[rgba(97,176,240,0.3)] text-[#61b0f0] backdrop-blur-sm">
+                      <Handshake size={12} />
+                      Collab with {project.collaboration}
+                    </span>
+                  )}
+                </div>
 
                 <p className="mb-7 max-w-[480px] text-[15px] leading-[1.75] text-[#b4b2cc]">
                   {project.description}
@@ -135,6 +147,12 @@ export default function ProjectShowcase(): React.ReactElement {
                       {tag}
                     </span>
                   ))}
+                  {project.collaboration && (
+                    <span className="rounded-full bg-gradient-to-r from-[#9d8cf5] to-[#61b0f0] px-5 py-2 text-sm font-semibold text-white shadow-[0_0_15px_rgba(157,140,245,0.25)] flex items-center gap-1.5">
+                      <Handshake size={14} />
+                      Collaboration
+                    </span>
+                  )}
                 </div>
               </div>
 

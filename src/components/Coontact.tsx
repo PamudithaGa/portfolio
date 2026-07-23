@@ -34,11 +34,8 @@ const Coontact: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-[#f8f9fa] rounded-[40px] p-8 md:p-16 flex flex-col-2 gap-12 lg:gap-20 font-sans border border-gray-100 shadow-sm">
-      {/* Left Column - Form */}
-      <form
-        onSubmit={handleSubmit}
-        className="w-full lg:w-[55%] flex flex-col gap-5"
+    <div className=" lg:flex-row flex-col-reverse flex  gap-12 lg:gap-20 w-full bg-[#f8f9fa] rounded-[40px] p-6 sm:p-8 md:p-16 font-sans border border-gray-100 shadow-sm">
+      <form onSubmit={handleSubmit}  className="w-full lg:w-[55%] grid grid-cols-1 gap-5"
       >
         <div>
           <input

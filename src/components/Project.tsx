@@ -34,7 +34,7 @@ const projects: Project[] = [
   },
   {
     client: "Regency Travel House",
-    title: "Travel Agency Website Design",
+    title: "Travel Agency Website",
     description:
       "Built a custom travel packages platform that lets visitors browse curated destinations and accommodations, with a clean booking flow designed to convert casual browsers into confirmed bookings.",
     challenges: [
@@ -98,9 +98,10 @@ export default function ProjectShowcase(): React.ReactElement {
             What I did
           </h2>
         </div>
+          {/* <div className=" col-span-4 lg:col-span-3 relative w-full overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-2 lg:p-6 pb-36 lg:pb-10"> */}
 
         <div className="grid grid-cols-4 gap-8 h-[88dvh] lg:h-[80dvh]">
-          <div className="col-span-4 lg:col-span-3 relative w-full overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-6 sm:p-10 pb-36 sm:pb-28 lg:pb-10">
+          <div className=" col-span-4 lg:col-span-3 relative w-full overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-2 lg:p-6 pb-36 lg:pb-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-">
               {/* text content */}
               <div>
@@ -157,7 +158,7 @@ export default function ProjectShowcase(): React.ReactElement {
               </div>
 
               {/* mockup preview, layered/stacked for depth */}
-              <div className="relative h-[200px] lg:h-[260px] flex justify-center lg:block mt-2 lg:mt-0">
+              <div className="relative h-[200px] lg:h-[260px] flex justify-center lg:block mt- lg:mt-0">
                 <div className="absolute right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-2 top-6 h-[130px] lg:h-[190px] w-[280px] sm:w-[360px] rotate-3 rounded-xl border border-[rgba(157,140,245,0.2)] bg-[#1a1f3a]" />
                 <div className="absolute right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-6 top-3 h-[130px] lg:h-[190px] w-[280px] sm:w-[360px] -rotate-2 rounded-xl border border-[rgba(157,140,245,0.25)] bg-[#141830]" />
                 <a

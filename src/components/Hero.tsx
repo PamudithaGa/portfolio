@@ -274,7 +274,7 @@ const Hero: React.FC = () => {
             </motion.div>
 
             {/* Right side with QR code and decorative elements */}
-            <div className=" w-full xl:w-1/2 flex flex-col items-end justify-end relative z-10 xl:ml-10">
+            <div className="w-full xl:w-auto flex flex-col items-start xl:items-center justify-center relative z-10">
               {/* Glowing orbs/particles background */}
               <motion.div
                 animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
@@ -297,8 +297,8 @@ const Hero: React.FC = () => {
               />
 
               {/* Content Container */}
-              <div className="z-10 w-full flex flex-col gap-10 items-end justify-end">
-                <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-center sm:items-start mt-2">
+              <div className="z-10 w-full flex flex-col gap-10 items-start xl:items-center justify-center">
+                <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 lg:ml-135 -mt-30">
                   {/* QR code to social profiles */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}

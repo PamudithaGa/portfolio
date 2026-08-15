@@ -3,7 +3,16 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Handshake } from "lucide-react";
 import regencyImg from "../assets/regency.png";
 import ehelepola from "../assets/ehelepola2.png";
 import Lavia from "../assets/CafeLavia.png";
+import awardImg from "../assets/award.png";
 import RobotCanvas from "./RobotCanvas";
+
+interface Award {
+  title: string;
+  category: string;
+  competition: string;
+  image: string;
+}
+
 interface Project {
   client: string;
   title: string;
@@ -13,6 +22,7 @@ interface Project {
   image: string;
   link?: string;
   collaboration?: string;
+  award?: Award;
 }
 
 const projects: Project[] = [
@@ -31,6 +41,12 @@ const projects: Project[] = [
     image: ehelepola,
     link: "https://www.ehelepolawalawwa.lk",
     collaboration: "AIOH",
+    award: {
+      title: "Silver Winner",
+      category: "Best Nonprofit Website",
+      competition: "BestWeb.LK 2026",
+      image: awardImg,
+    },
   },
   {
     client: "Regency Travel House",
@@ -118,6 +134,11 @@ export default function ProjectShowcase(): React.ReactElement {
                       Collab with {project.collaboration}
                     </span>
                   )}
+                  {project.award && (
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[rgba(242,193,78,0.1)] border border-[rgba(242,193,78,0.3)] text-[#f2c14e] backdrop-blur-sm">
+                      🏆 {project.award.competition} {project.award.title} ({project.award.category})
+                    </span>
+                  )}
                 </div>
 
                 <p className="mb-7 max-w-[480px] text-[15px] leading-[1.75] text-[#b4b2cc]">
@@ -174,6 +195,18 @@ export default function ProjectShowcase(): React.ReactElement {
                     <ArrowUpRight size={16} />
                   </span>
                 </a>
+
+                {/* Award Badge Overlay */}
+                {project.award && (
+                  <div className="absolute z-20 right-[calc(50%-150px)] sm:right-[calc(50%-200px)] lg:right-[-25px] -top-6 w-24 h-24 lg:w-28 lg:h-28 transition-transform duration-300 hover:scale-110 drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)]">
+                    <img
+                      src={project.award.image}
+                      alt={`${project.award.competition} ${project.award.title}`}
+                      className="w-full h-full object-contain"
+                      title={`${project.award.competition} - ${project.award.title} (${project.award.category})`}
+                    />
+                  </div>
+                )}
               </div>
             </div>
 

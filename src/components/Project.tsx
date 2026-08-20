@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Handshake } from "lucide-react";
 import regencyImg from "../assets/regency.png";
 import ehelepola from "../assets/ehelepola2.png";
@@ -85,9 +85,42 @@ const projects: Project[] = [
 export default function ProjectShowcase(): React.ReactElement {
   const [index, setIndex] = useState<number>(0);
   const project = projects[index];
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
   const goPrev = () => setIndex((i) => (i === 0 ? projects.length - 1 : i - 1));
   const goNext = () => setIndex((i) => (i === projects.length - 1 ? 0 : i + 1));
+
+  useEffect(() => {
+    if (!isPlaying) return;
+    const interval = setInterval(() => {
+      goNext();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isPlaying, index]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+    touchEndX.current = null;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const distance = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 50;
+    
+    if (distance > minSwipeDistance) {
+      goNext();
+    } else if (distance < -minSwipeDistance) {
+      goPrev();
+    }
+  };
 
   return (
     <section
@@ -117,7 +150,25 @@ export default function ProjectShowcase(): React.ReactElement {
           {/* <div className=" col-span-4 lg:col-span-3 relative w-full overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-2 lg:p-6 pb-36 lg:pb-10"> */}
 
         <div className="grid grid-cols-4 gap-8 h-[88dvh] lg:h-[80dvh]">
-          <div className=" col-span-4 lg:col-span-3 relative w-full overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-2 lg:p-6 pb-36 lg:pb-10">
+          <div
+            onMouseEnter={() => setIsPlaying(false)}
+            onMouseLeave={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              const isStillInside = (
+                e.clientX >= rect.left &&
+                e.clientX <= rect.right &&
+                e.clientY >= rect.top &&
+                e.clientY <= rect.bottom
+              );
+              if (!isStillInside) {
+                setIsPlaying(true);
+              }
+            }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            className="col-span-4 lg:col-span-3 relative w-full overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-2 lg:p-6 pb-36 lg:pb-10"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-">
               {/* text content */}
               <div>
@@ -179,12 +230,12 @@ export default function ProjectShowcase(): React.ReactElement {
               </div>
 
               {/* mockup preview, layered/stacked for depth */}
-              <div className="relative h-[200px] lg:h-[260px] flex justify-center lg:block mt- lg:mt-0">
-                <div className="absolute right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-2 top-6 h-[130px] lg:h-[190px] w-[280px] sm:w-[360px] rotate-3 rounded-xl border border-[rgba(157,140,245,0.2)] bg-[#1a1f3a]" />
-                <div className="absolute right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-6 top-3 h-[130px] lg:h-[190px] w-[280px] sm:w-[360px] -rotate-2 rounded-xl border border-[rgba(157,140,245,0.25)] bg-[#141830]" />
+              <div className="relative h-[200dvh] lg:h-[60dvh] flex justify-center lg:block mt- lg:mt-0">
+                <div className="absolute right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-2 top-6 h-[0dvh] lg:h-[25dvh] w-[280px] sm:w-[360px] rotate-3 rounded-xl border border-[rgba(157,140,245,0.2)] bg-[#1a1f3a]" />
+                <div className="absolute right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-6 top-3 h-[20dvh] lg:h-[25dvh] w-[280px] sm:w-[360px] -rotate-2 rounded-xl border border-[rgba(157,140,245,0.25)] bg-[#141830]" />
                 <a
                   href={project.link ?? "#"}
-                  className="group absolute right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-4 top-0 block h-[150px] lg:h-[190px] w-[280px] sm:w-[360px] overflow-hidden rounded-xl border border-[rgba(157,140,245,0.3)] shadow-2xl"
+                  className="group absolute right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-4 top-0 block h-[20dvh] lg:h-[25dvh] w-[280px] sm:w-[360px] overflow-hidden rounded-xl border border-[rgba(157,140,245,0.3)] shadow-2xl"
                 >
                   <img
                     src={project.image}
@@ -210,8 +261,22 @@ export default function ProjectShowcase(): React.ReactElement {
               </div>
             </div>
 
+            {/* dot indicators */}
+            <div className="absolute lg:hidden bottom-6 left-1/2 -translate-x-1/2 flex gap-2.5 z-10">
+              {projects.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setIndex(idx)}
+                  className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                    idx === index ? "bg-[#f2c14e] w-6" : "bg-[rgba(157,140,245,0.2)] hover:bg-[rgba(157,140,245,0.4)] w-2.5"
+                  }`}
+                  aria-label={`Go to project ${idx + 1}`}
+                />
+              ))}
+            </div>
+
             {/* nav controls */}
-            <div className="absolute lg:bottom-6 lg:right-6 sm:bottom-8 sm:right-8 -mt-4 flex justify-end gap-3">
+            <div className="hidden md:flex absolute lg:bottom-6 lg:right-6 sm:bottom-8 sm:right-8 -mt-4 justify-end gap-3">
               <button
                 onClick={goPrev}
                 aria-label="Previous project"
@@ -230,7 +295,7 @@ export default function ProjectShowcase(): React.ReactElement {
           </div>
 
           <div className="hidden lg:block col-span-1 relative overflow-hidden rounded-[20px] border-[rgba(157,140,245,0.15)]">
-            <RobotCanvas cameraFov={40} className="w-full h-full min-h-[350px]" />
+            <RobotCanvas cameraFov={40} className="w-full h-full h-[350px]" />
           </div>
         </div>
       </div>

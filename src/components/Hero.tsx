@@ -297,7 +297,7 @@ const Hero: React.FC = () => {
               />
 
               {/* Content Container */}
-              <div className="z-10 w-full flex flex-col gap-10 items-start xl:items-center justify-center">
+              <div className="z-10 w-full hidden lg:flex flex-col gap-10 items-start xl:items-center justify-center">
                 <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 lg:ml-135 -mt-30">
                   {/* QR code to social profiles */}
                   <motion.div

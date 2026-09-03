@@ -17,6 +17,8 @@ const Coontact: React.FC = () => {
     category: "",
     requirement: "",
   });
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -27,10 +29,80 @@ const Coontact: React.FC = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Add form submission handling logic here
+    
+    // Form validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.requirement.trim()) {
+      setStatus("error");
+      setStatusMessage("Please fill in all required fields (Name, Email, and Requirement).");
+      return;
+    }
+
+    setStatus("submitting");
+    setStatusMessage("");
+
+    try {
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+      if (!accessKey || accessKey === "YOUR_WEB3FORMS_ACCESS_KEY_HERE") {
+        console.warn("Web3Forms Access Key is not configured in .env file. Falling back to debug mode.");
+        // If no access key is configured, simulate a successful response for preview/local dev.
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+        setStatus("success");
+        setStatusMessage("Debug Mode: Form submitted successfully! (Configure VITE_WEB3FORMS_ACCESS_KEY in .env to receive real emails).");
+        setFormData({
+          name: "",
+          company: "",
+          email: "",
+          phoneCode: "LK +94",
+          phone: "",
+          category: "",
+          requirement: "",
+        });
+        return;
+      }
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          company: formData.company || "Not provided",
+          phone: `${formData.phoneCode} ${formData.phone}`.trim() || "Not provided",
+          category: formData.category || "Not selected",
+          message: formData.requirement,
+          subject: `New Portfolio Inquiry from ${formData.name}`,
+          from_name: "Portfolio Contact Form",
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setStatus("success");
+        setStatusMessage("Thank you! Your message has been sent successfully. I will get back to you soon.");
+        setFormData({
+          name: "",
+          company: "",
+          email: "",
+          phoneCode: "LK +94",
+          phone: "",
+          category: "",
+          requirement: "",
+        });
+      } else {
+        setStatus("error");
+        setStatusMessage(result.message || "Failed to send message. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+      setStatus("error");
+      setStatusMessage("An unexpected error occurred. Please try again later or reach out via email directly.");
+    }
   };
 
   return (
@@ -43,10 +115,11 @@ const Coontact: React.FC = () => {
           <input
             type="text"
             name="name"
-            placeholder="Enter your name (e.g. Nimal Perera)"
+            placeholder="Enter your name (e.g. Pamuditha Senanayaka)"
             value={formData.name}
             onChange={handleChange}
-            className="w-full p-4 bg-white border border-gray-200 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors"
+            disabled={status === "submitting"}
+            className="w-full p-4 bg-white border border-gray-200 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors disabled:opacity-60 disabled:bg-gray-50 disabled:cursor-not-allowed"
           />
         </div>
 
@@ -57,7 +130,8 @@ const Coontact: React.FC = () => {
             placeholder="Enter your company"
             value={formData.company}
             onChange={handleChange}
-            className="w-full p-4 bg-white border border-gray-200 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors"
+            disabled={status === "submitting"}
+            className="w-full p-4 bg-white border border-gray-200 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors disabled:opacity-60 disabled:bg-gray-50 disabled:cursor-not-allowed"
           />
         </div>
 
@@ -68,7 +142,8 @@ const Coontact: React.FC = () => {
             placeholder="Enter your e-mail"
             value={formData.email}
             onChange={handleChange}
-            className="w-full p-4 bg-white border border-gray-200 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors"
+            disabled={status === "submitting"}
+            className="w-full p-4 bg-white border border-gray-200 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors disabled:opacity-60 disabled:bg-gray-50 disabled:cursor-not-allowed"
           />
         </div>
 
@@ -79,7 +154,8 @@ const Coontact: React.FC = () => {
               name="phoneCode"
               value={formData.phoneCode}
               onChange={handleChange}
-              className="w-full p-4 bg-white border border-gray-200 rounded-2xl text-gray-700 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors appearance-none cursor-pointer pr-8 font-medium"
+              disabled={status === "submitting"}
+              className="w-full p-4 bg-white border border-gray-200 rounded-2xl text-gray-700 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors appearance-none cursor-pointer pr-8 font-medium disabled:opacity-60 disabled:bg-gray-50 disabled:cursor-not-allowed"
             >
               <option value="LK +94">LK +94</option>
               <option value="US +1">US +1</option>
@@ -96,7 +172,8 @@ const Coontact: React.FC = () => {
             placeholder="Enter phone number"
             value={formData.phone}
             onChange={handleChange}
-            className="flex-grow p-4 w-2/3 bg-white border border-gray-200 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors"
+            disabled={status === "submitting"}
+            className="flex-grow p-4 w-2/3 bg-white border border-gray-200 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors disabled:opacity-60 disabled:bg-gray-50 disabled:cursor-not-allowed"
           />
         </div>
 
@@ -106,7 +183,8 @@ const Coontact: React.FC = () => {
             name="category"
             value={formData.category}
             onChange={handleChange}
-            className={`w-full p-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors appearance-none cursor-pointer pr-10 ${
+            disabled={status === "submitting"}
+            className={`w-full p-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors appearance-none cursor-pointer pr-10 disabled:opacity-60 disabled:bg-gray-50 disabled:cursor-not-allowed ${
               formData.category ? "text-gray-700" : "text-gray-400"
             }`}
           >
@@ -128,17 +206,41 @@ const Coontact: React.FC = () => {
             rows={5}
             value={formData.requirement}
             onChange={handleChange}
-            className="w-full p-4 bg-white border border-gray-200 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors resize-none"
+            disabled={status === "submitting"}
+            className="w-full p-4 bg-white border border-gray-200 rounded-2xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#222052] focus:ring-1 focus:ring-[#222052] transition-colors resize-none disabled:opacity-60 disabled:bg-gray-50 disabled:cursor-not-allowed"
           />
         </div>
 
-        <div className="mt-">
+        <div className="mt-2 flex flex-col gap-4">
           <button
             type="submit"
-            className="bg-[#222052] hover:bg-[#F5CB5C] text-white hover:text-[#222052] font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.03] transition-all shadow-md"
+            disabled={status === "submitting"}
+            className="bg-[#222052] hover:bg-[#F5CB5C] disabled:bg-gray-400 text-white hover:text-[#222052] disabled:text-white font-semibold text-base px-8 py-3.5 rounded-full hover:scale-[1.03] disabled:hover:scale-100 transition-all shadow-md cursor-pointer disabled:cursor-not-allowed flex items-center justify-center gap-2 self-start"
           >
-            Send Message
+            {status === "submitting" ? (
+              <>
+                <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Sending...
+              </>
+            ) : (
+              "Send Message"
+            )}
           </button>
+
+          {status === "success" && (
+            <div className="p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-2xl text-sm font-medium animate-fade-in">
+              {statusMessage}
+            </div>
+          )}
+
+          {status === "error" && (
+            <div className="p-4 bg-rose-50 border border-rose-200 text-rose-800 rounded-2xl text-sm font-medium animate-fade-in">
+              {statusMessage}
+            </div>
+          )}
         </div>
       </form>
 
@@ -146,9 +248,9 @@ const Coontact: React.FC = () => {
       <div className="w-full lg:w-[45%] flex flex-col justify-between pt-2">
         <div className="mb-8">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-            Ready to Grow Your <br />
+            Let's write the next <br />
             <span className="text-[#222052] bg-gradient-to-r from-[#222052] to-[#F5CB5C] bg-clip-text text-transparent">
-              Business?
+              chapter together
             </span>
           </h2>
           <p className="text-gray-500 mt-4 text-base leading-relaxed max-w-lg">

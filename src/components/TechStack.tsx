@@ -198,8 +198,8 @@ export default function TechStackSection(): React.ReactElement {
       <div className="relative z-[2] mx-auto grid w-full max-w-[1280px] grid-cols-1 lg:grid-cols-2 items-start gap-12 lg:gap-[60px]">
         {/* ---------- LEFT COLUMN ---------- */}
         <div>
-          <div className="mb-[18px] font-mono text-[13px] tracking-[4px] text-[#222052] before:mr-1 before:text-[#F5CB5C] before:content-['//']">
-            TECH STACK
+          <div className="mb-[18px] font-mono uppercase text-[13px] tracking-[4px] text-[#222052] before:mr-1 before:text-[#F5CB5C] before:content-['//']">
+            Learning the craft{" "}
           </div>
 
           <h2 className="mb-[22px] font-roboto text-[clamp(38px,4.2vw,58px)]  leading-[1.02] text-[#222052]">
@@ -212,8 +212,8 @@ export default function TechStackSection(): React.ReactElement {
 
           <p className="mb-10 max-w-[420px] text-[16.5px] leading-[1.7] text-gray-600">
             Every system I ship is engineered the same way it&apos;s designed
-            here — from the interface people touch, down to the
-            infrastructure that keeps it running. Each layer earns its place.
+            here — from the interface people touch, down to the infrastructure
+            that keeps it running. Each layer earns its place.
           </p>
 
           <div className="mb-[6px] flex w-full max-w-none lg:max-w-[440px] flex-wrap gap-[10px]">

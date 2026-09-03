@@ -35,7 +35,7 @@ const AboutMe: React.FC = () => {
         </div>
         <div className="w-full lg:w-2/3 flex flex-col justify-center px-6 sm:px-12 lg:px-0">
           <h1 className="text-[#222052] text-4xl sm:text-6xl font-bold lg:font-normal mb-6 sm:mb-8">
-            Who am I?
+            Where the story starts?
           </h1>
           {/* Desktop Description */}
           <p className="hidden lg:block text-md text-justify leading-relaxed text-gray-800">

@@ -86,7 +86,7 @@ export default function ProjectShowcase(): React.ReactElement {
   const [index, setIndex] = useState<number>(0);
   const project = projects[index];
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
-  
+
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
@@ -114,7 +114,7 @@ export default function ProjectShowcase(): React.ReactElement {
     if (touchStartX.current === null || touchEndX.current === null) return;
     const distance = touchStartX.current - touchEndX.current;
     const minSwipeDistance = 50;
-    
+
     if (distance > minSwipeDistance) {
       goNext();
     } else if (distance < -minSwipeDistance) {
@@ -124,7 +124,7 @@ export default function ProjectShowcase(): React.ReactElement {
 
   return (
     <section
-      className="relative overflow-hidden px-[6vw] py-2 lg:py-0 h-[99dvh] lg:h-[95dvh] rounded-2xl"
+      className="relative overflow-hidden px-[6vw] py-2 lg:py-0  rounded-2xl"
       style={{ backgroundColor: "#0a0a16" }}
     >
       {/* ambient glow, consistent with other sections */}
@@ -143,23 +143,22 @@ export default function ProjectShowcase(): React.ReactElement {
             {String(index + 1).padStart(2, "0")} /{" "}
             {String(projects.length).padStart(2, "0")}
           </div>
-          <h2 className="font-[Poppins] text-[clamp(36px,4vw,56px)] font-extrabold text-[#f2f1f8]">
-            What I did
+          <h2 className="font-[Poppins] text-[clamp(36px,4vw,56px)] lg:mt-4 font-extrabold text-[#f2f1f8]">
+            What I've shipped{" "}
           </h2>
         </div>
-          {/* <div className=" col-span-4 lg:col-span-3 relative w-full overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-2 lg:p-6 pb-36 lg:pb-10"> */}
+        {/* <div className=" col-span-4 lg:col-span-3 relative w-full overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-2 lg:p-6 pb-36 lg:pb-10"> */}
 
         <div className="grid grid-cols-4 gap-8 h-[88dvh] lg:h-[80dvh]">
           <div
             onMouseEnter={() => setIsPlaying(false)}
             onMouseLeave={(e) => {
               const rect = e.currentTarget.getBoundingClientRect();
-              const isStillInside = (
+              const isStillInside =
                 e.clientX >= rect.left &&
                 e.clientX <= rect.right &&
                 e.clientY >= rect.top &&
-                e.clientY <= rect.bottom
-              );
+                e.clientY <= rect.bottom;
               if (!isStillInside) {
                 setIsPlaying(true);
               }
@@ -169,48 +168,52 @@ export default function ProjectShowcase(): React.ReactElement {
             onTouchEnd={handleTouchEnd}
             className="col-span-4 lg:col-span-3 relative w-full overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-2 lg:p-6 pb-36 lg:pb-10"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* text content */}
-              <div>
-                <h3 className="mb-1 font-[Poppins] text-[28px] font-bold text-[#f2f1f8]">
-                  {project.title}
-                </h3>
-                <div className="flex items-center flex-wrap gap-2.5 mb-5">
-                  <p className="text-sm font-medium text-[#9d8cf5]">
-                    - {project.client}
-                  </p>
-                  {project.collaboration && (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[rgba(97,176,240,0.1)] border border-[rgba(97,176,240,0.3)] text-[#61b0f0] backdrop-blur-sm">
-                      <Handshake size={12} />
-                      Collab with {project.collaboration}
-                    </span>
-                  )}
-                  {project.award && (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[rgba(242,193,78,0.1)] border border-[rgba(242,193,78,0.3)] text-[#f2c14e] backdrop-blur-sm">
-                      🏆 {project.award.competition} {project.award.title} ({project.award.category})
-                    </span>
-                  )}
+              <div className="">
+                <div className="">
+                  <h3 className="mb-1 font-[Poppins] text-[26px] lg:text[28px] font-bold text-[#f2f1f8]">
+                    {project.title}
+                  </h3>
+                  <div className="flex items-center flex-wrap lg: gap-2.5 mb-1 lg:mb-5">
+                    <p className="text-[12px] lg:text-xs font-medium text-[#9d8cf5]">
+                      - {project.client}
+                    </p>
+                    {project.collaboration && (
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[12px] lg:text-xs font-semibold bg-[rgba(97,176,240,0.1)] border border-[rgba(97,176,240,0.3)] text-[#61b0f0] backdrop-blur-sm">
+                        <Handshake size={12} />
+                        Collab with {project.collaboration}
+                      </span>
+                    )}
+                    {project.award && (
+                      <span className="hidden lg:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] lg:text-xs lg:font-semibold bg-[rgba(242,193,78,0.1)] border border-[rgba(242,193,78,0.3)] text-[#f2c14e] backdrop-blur-sm">
+                        🏆 {project.award.competition} {project.award.title} (
+                        {project.award.category})
+                      </span>
+                    )}
+                  </div>
                 </div>
-
-                <p className="mb-7 max-w-[480px] text-[15px] leading-[1.75] text-[#b4b2cc]">
-                  {project.description}
-                </p>
-
-                <h4 className="mb-3 font-[Poppins] text-lg font-semibold text-[#f2f1f8]">
-                  Challenges, we solved
-                </h4>
-                <ul className="mb-8 space-y-2.5">
-                  {project.challenges.map((c) => (
-                    <li
-                      key={c}
-                      className="flex items-start gap-3 text-[14.5px] leading-snug text-[#c9c6ec]"
-                    >
-                      <span className="mt-[7px] h-[7px] w-[7px] flex-shrink-0 rounded-full bg-[#61b0f0]" />
-                      {c}
-                    </li>
-                  ))}
-                </ul>
-
+                <div className="">
+                  <p className="mb-1 lg:mb-7 max-w-[480px] text-[15px] leading-[1.75] text-[#b4b2cc]">
+                    {project.description}
+                  </p>
+                </div>
+                <div className="">
+                  <h4 className="mb-1 lg:mb-3 font-[Poppins] text-lg font-semibold text-[#f2f1f8]">
+                    Challenges, we solved
+                  </h4>
+                  <ul className="mb-2 lg:mb-8 space-y-2.5">
+                    {project.challenges.map((c) => (
+                      <li
+                        key={c}
+                        className="flex items-start gap-3 text-[14.5px] leading-snug text-[#c9c6ec]"
+                      >
+                        <span className="mt-[7px] h-[7px] w-[7px] flex-shrink-0 rounded-full bg-[#61b0f0]" />
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
                 <div className="hidden absolute bottom-6 left-6 sm:bottom-8 sm:left-8 lg:flex flex-wrap gap-3 max-w-[calc(100%-120px)] lg:max-w-none">
                   {project.tags.map((tag) => (
                     <span
@@ -231,8 +234,8 @@ export default function ProjectShowcase(): React.ReactElement {
 
               {/* mockup preview, layered/stacked for depth */}
               <div className="relative h-[200dvh] lg:h-[60dvh] flex justify-center lg:block mt- lg:mt-0">
-                <div className="absolute right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-2 top-6 h-[0dvh] lg:h-[25dvh] w-[280px] sm:w-[360px] rotate-3 rounded-xl border border-[rgba(157,140,245,0.2)] bg-[#1a1f3a]" />
-                <div className="absolute right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-6 top-3 h-[20dvh] lg:h-[25dvh] w-[280px] sm:w-[360px] -rotate-2 rounded-xl border border-[rgba(157,140,245,0.25)] bg-[#141830]" />
+                <div className="absolute right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-2 top-5 h-[18dvh] lg:h-[25dvh] w-[280px] sm:w-[360px] rotate-3 rounded-xl border border-[rgba(157,140,245,0.2)] bg-[#1a1f3a]" />
+                <div className="absolute right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-5 top-3 h-[18dvh] lg:h-[25dvh] w-[280px] sm:w-[360px] -rotate-2 rounded-xl border border-[rgba(157,140,245,0.25)] bg-[#141830]" />
                 <a
                   href={project.link ?? "#"}
                   className="group absolute right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-4 top-0 block h-[20dvh] lg:h-[25dvh] w-[280px] sm:w-[360px] overflow-hidden rounded-xl border border-[rgba(157,140,245,0.3)] shadow-2xl"
@@ -249,7 +252,7 @@ export default function ProjectShowcase(): React.ReactElement {
 
                 {/* Award Badge Overlay */}
                 {project.award && (
-                  <div className="absolute z-20 right-[calc(50%-150px)] sm:right-[calc(50%-200px)] lg:right-[-25px] -top-6 w-24 h-24 lg:w-28 lg:h-28 transition-transform duration-300 hover:scale-110 drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)]">
+                  <div className="absolute z-20 right-[calc(50%-150px)] sm:right-[calc(50%-200px)] lg:right-[-25px] -top-6 w-20 h-20 lg:w-28 lg:h-28 transition-transform duration-300 hover:scale-110 drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)]">
                     <img
                       src={project.award.image}
                       alt={`${project.award.competition} ${project.award.title}`}
@@ -268,7 +271,9 @@ export default function ProjectShowcase(): React.ReactElement {
                   key={idx}
                   onClick={() => setIndex(idx)}
                   className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                    idx === index ? "bg-[#f2c14e] w-6" : "bg-[rgba(157,140,245,0.2)] hover:bg-[rgba(157,140,245,0.4)] w-2.5"
+                    idx === index
+                      ? "bg-[#f2c14e] w-6"
+                      : "bg-[rgba(157,140,245,0.2)] hover:bg-[rgba(157,140,245,0.4)] w-2.5"
                   }`}
                   aria-label={`Go to project ${idx + 1}`}
                 />

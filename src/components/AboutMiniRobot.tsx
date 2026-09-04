@@ -16,7 +16,7 @@ import {
   VolumeX,
   X,
   MessageSquare,
-  Sparkles,
+  // Sparkles,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";

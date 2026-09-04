@@ -1,5 +1,5 @@
 import React from "react";
-import Me from "../assets/my_Edit2.png";
+// import Me from "../assets/my_Edit2.png";
 import Me2 from "../assets/graduarionI.jpg";
 // import AboutImg from "../assets/1st.png";
 import BiththaraMalli from "../assets/biththara_malli.png";

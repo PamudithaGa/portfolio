@@ -232,7 +232,7 @@ const IntroLoader: React.FC<IntroLoaderProps> = ({ onComplete }) => {
     // Continuous single-timeline run (0s to 4.4s)
     const startTime = performance.now();
     const WRITE_DURATION = 2000;       // 0.0s - 2.0s: Cursive handwriting
-    const ASSEMBLED_HOLD = 2400;       // 2.0s - 2.4s: Full name shimmers
+    // const ASSEMBLED_HOLD = 2400;       // 2.0s - 2.4s: Full name shimmers
     const ROBOT_ENTRY_TIME = 2400;     // 2.4s: Robot descends from top-right
     const CABLES_ATTACH_TIME = 3000;   // 3.0s: Cables latch on
     const PULL_UP_TIME = 3500;         // 3.5s: Robot lifts screen up

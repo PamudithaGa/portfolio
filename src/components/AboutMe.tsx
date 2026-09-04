@@ -1,10 +1,12 @@
 import React from "react";
-import Me from "../assets/my_Edit2.png";
+// import Me from "../assets/my_Edit2.png";
+import Me2 from "../assets/graduarionI.jpg";
 // import AboutImg from "../assets/1st.png";
 import BiththaraMalli from "../assets/biththara_malli.png";
 import Kolam from "../assets/kolam2.png";
 import SM from "../assets/sm_travels.png";
 import { Facebook, Instagram, Linkedin, Github } from "lucide-react";
+import AboutMiniRobot from "./AboutMiniRobot";
 
 const AboutMe: React.FC = () => {
   return (
@@ -12,24 +14,27 @@ const AboutMe: React.FC = () => {
       <div className="flex flex-col lg:flex-row w-full h-auto lg:h-full justify-center items-center gap-12 lg:gap-32 py-12 lg:py-0">
         <div className="w-full lg:w-1/3 flex justify-center items-end relative mb-16 lg:mb-0">
           <div className="relative flex justify-center items-end">
-            <div className="w-[280px] sm:w-[350px] h-[70px] sm:h-[90px] bg-[#222052] rounded-[100%] z-10 absolute -bottom-5 animate-moveLeftRight"></div>
-            <div className="w-[280px] sm:w-[350px] h-[70px] sm:h-[90px] border-4 border-[#F5CB5C] z-10 rounded-[100%] absolute -bottom-5 animate-moveRightLeft"></div>
             <img
-              src={Me}
+              src={Me2}
               alt="About Me"
-              className="h-[300px] sm:h-[390px] object-cover z-10 relative mb-5"
+              className="h-[300px] sm:h-[390px] rounded-t-3xl object-cover z-10 relative mb-5"
             />
 
+            {/* Mini Robot at bottom right of the photo */}
+            <div className="absolute -bottom-38 -left-44 z-52">
+              <AboutMiniRobot />
+            </div>
+
             {/* L-shaped "Mr. SIGMA" text overlay */}
-            <div className="absolute left-1 bottom-14 z-50 origin-bottom-left -rotate-90 select-none pointer-events-none">
-              <span className="font-roboto text-5xl sm:text-6xl font-bold tracking-widest text-white [-webkit-text-stroke:2px_black]">
-                Mr.
+            <div className="absolute -left-2 bottom-11 z-50 origin-bottom-left -rotate-90 select-none pointer-events-none">
+              <span className="font-roboto text-5xl lg:text-6xl font-bold tracking-widest text-white [-webkit-text-stroke:2px_black]">
+                Mr.SIGMA
               </span>
             </div>
-            <div className="absolute left-6 bottom-4 z-50 select-none pointer-events-none">
-              <span className="font-roboto font-extrabold text-5xl sm:text-6xl  tracking-[0.2em] text-white/0 [-webkit-text-stroke:2px_white]">
+            <div className="absolute left- bottom-4 z-50 select-none pointer-events-none">
+              {/* <span className="font-roboto font-extrabold text-5xl sm:text-6xl  tracking-[0.2em] text-white/0 [-webkit-text-stroke:2px_white]">
                 SIGMA
-              </span>
+              </span> */}
             </div>
           </div>
         </div>

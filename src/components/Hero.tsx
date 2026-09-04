@@ -89,7 +89,7 @@ const Hero: React.FC = () => {
       {/* Background Glow */}
       <div className="absolute inset-0 bg-radial-gradient pointer-events-none" />
 
-      <section className="relative z-20 mx-auto">
+      <section className="relative z-20 mx-auto lg:hidden">
         <Navbar />
       </section>
 
@@ -309,7 +309,7 @@ const Hero: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
                     <div className="bg-white p-2 rounded-xl shadow-inner">
                       <QRCodeSVG
-                        value="https://linkedin.com/in/pamudithagss"
+                        value="https://wa.me/94726442538"
                         size={70}
                         className="rounded-lg"
                       />
@@ -324,7 +324,7 @@ const Hero: React.FC = () => {
           </div>
         </motion.div>
 
-        <div className=" w-full lg:w-1/2 h-[350px] sm:h-[500px] lg:h-full relative -mt-16 sm:mt-5 lg:-mt-50">
+        <div className=" w-full lg:w-1/2 h-[350px] sm:h-[500px] lg:h-full relative sm:mt-5 lg:-mt-25">
           <RobotCanvas cameraFov={36} />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-indigo-500/20 blur-[100px] rounded-full z-10" />
         </div>

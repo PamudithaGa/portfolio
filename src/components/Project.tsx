@@ -166,7 +166,7 @@ export default function ProjectShowcase(): React.ReactElement {
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
-            className="col-span-4 lg:col-span-3 relative w-full overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-2 lg:p-6 pb-36 lg:pb-10"
+            className="col-span-4 lg:col-span-3 relative w-full h-[98%] overflow-hidden rounded-[20px] border border-[rgba(157,140,245,0.18)] bg-gradient-to-br from-[#0d1226] to-[#0a0a16] p-2 lg:p-6 pb-36 lg:pb-10"
           >
             <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* text content */}
@@ -214,7 +214,7 @@ export default function ProjectShowcase(): React.ReactElement {
                     ))}
                   </ul>
                 </div>
-                <div className="hidden absolute bottom-6 left-6 sm:bottom-8 sm:left-8 lg:flex flex-wrap gap-3 max-w-[calc(100%-120px)] lg:max-w-none">
+                <div className="hidden absolute bottom-6 left-6 lg:bottom-10 lg:left-8 lg:flex flex-wrap gap-3 max-w-[calc(100%-120px)] lg:max-w-none">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
@@ -265,7 +265,7 @@ export default function ProjectShowcase(): React.ReactElement {
             </div>
 
             {/* dot indicators */}
-            <div className="absolute lg:hidden bottom-6 left-1/2 -translate-x-1/2 flex gap-2.5 z-10">
+            <div className="absolute  lg:hidden bottom-6 left-1/2 -translate-x-1/2 flex gap-2.5 z-10">
               {projects.map((_, idx) => (
                 <button
                   key={idx}

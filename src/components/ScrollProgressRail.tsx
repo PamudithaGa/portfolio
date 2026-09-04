@@ -4,16 +4,16 @@ import { motion, AnimatePresence } from "framer-motion";
 interface Chapter {
   id: string;
   label: string;
-  num: string;
+  // num: string;
   color: string; // Active accent color (#A380FF or #F5CB5C)
 }
 
 const chapters: Chapter[] = [
-  { id: "home", label: "HOME", num: "01", color: "#A380FF" }, // Lavender
-  { id: "about", label: "ABOUT", num: "02", color: "#F5CB5C" }, // Gold
-  { id: "tech-stack", label: "SKILLS", num: "03", color: "#A380FF" }, // Lavender
-  { id: "projects", label: "WORKS", num: "04", color: "#F5CB5C" }, // Gold
-  { id: "contact", label: "CONTACT", num: "05", color: "#A380FF" }, // Lavender
+  { id: "home", label: "Cover Page", color: "#A380FF" }, // Lavender
+  { id: "about", label: "Chapter 1", color: "#F5CB5C" }, // Gold
+  { id: "tech-stack", label: "Chapter 2", color: "#A380FF" }, // Lavender
+  { id: "projects", label: "Chapter 3", color: "#F5CB5C" }, // Gold
+  { id: "contact", label: "Chapter 4", color: "#A380FF" }, // Lavender
 ];
 
 const ScrollProgressRail: React.FC = () => {
@@ -136,7 +136,7 @@ const ScrollProgressRail: React.FC = () => {
                   color: isSelectedOrHovered ? chapter.color : "rgba(255,255,255,0.3)",
                 }}
               >
-                {chapter.num}
+                {/* {chapter.num} */}
               </span>
 
               {/* Text Label - Slide-Up + Fade-In Reveal */}
